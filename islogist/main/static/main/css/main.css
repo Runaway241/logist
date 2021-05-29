@@ -1,0 +1,177 @@
+body {
+background: #469C9A;
+}
+
+aside {
+float: left;
+background: #B3DAD5;
+width: 17%;
+padding: 2.5%;
+height: 100vh;
+color: #fff;
+border-right: 5px solid #d62424;
+}
+.nav{
+    color: black;
+}
+
+aside img {
+width: 80px;
+float: left;
+}
+
+aside h3 {
+margin_top: 50px;
+font-size: 28px;
+}
+
+aside ul {
+list-style: none
+}
+
+aside ul li {
+color: #000000;
+display: block;
+margin-top: 20px;
+transition: transform .10s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+color: #eb5959;
+text-decoration: none;
+transform: scale(1.05);
+}
+
+main .features {
+float: left;
+margin-top: 100px;
+text-align: center;
+width: 75%;
+}
+
+main .features h1 {
+font-size: 50px;
+margin-left: 100px;
+color: #000000;
+}
+
+main .features p {
+max-width: 400px;
+margin: 20px auto
+}
+
+.alert-warning {
+float: left;
+clear: both;
+width: 400px;
+margin: 20px 34%;
+text-align: left;
+}
+
+form {
+margin-left: 32%;
+width: 500px;
+margin-top: 50px;
+}
+
+th {
+width: 10%;
+background: #ffffff;
+}
+
+td:first-child {
+width: 30%;
+
+}
+
+th {
+font-weight: normal;
+color: #090202;
+padding: 10px 15px;
+}
+
+td {
+color: #000000;
+border-top: 1px solid #e8edff;
+padding: 10px 15px;
+}
+
+tr:hover td {
+background: #e8edff;
+}
+tr{
+background: #e8edff;
+}
+row {
+width: 550px;
+}
+
+button {
+margin-bottom: 15px;
+}
+.btn-success{
+    margin-top: 15px;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate{
+color: white;
+}
+.dataTables_wrapper{
+margin-left: 50px;
+}
+
+table .dataTable{
+margin: 100px;
+background: #fafafa;
+max-width: 80%;
+}
+
+.title{
+margin: auto;
+}
+.sorting sorting_desc{
+background: #fafafa;
+}
+.table_id_lenght{
+color: white;
+}
+
+.paginate_button previous disabled{
+color:white;
+}
+
+.paginate_button{
+background-color:white;
+}
+#table_id_previous.paginate_button.previous.disabled{
+color: white;
+}
+#table_id_next.paginate_button.next.disabled{
+background-color: white;
+}
+#table_id_previous.paginate_button.previous{
+background-color: white;
+
+}
+#table_id_next.paginate_button.next{
+background-color: white;
+}
+.dataTables_wrapper .dataTables_filter input{
+background-color: white;
+}
+.rasp{
+color: white!important;
+}
+.red{
+color: red;
+}
+.h6increate{
+    margin: 0% auto;
+    margin-bottom: 5px;
+}
+.btnincreate{
+    margin-left: 50px;
+    text-align: center;
+}

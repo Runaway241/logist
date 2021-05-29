@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+
+    <aside>
+        <div class="nav">
+            <h7>ИП"Nordtrans"</h7>
+            <h3>Навигация</h3>
+        </div>
+        <ul>
+           <a href=""><li><i class="fas fa-house-damage mr-2"></i>Главная</li></a>
+           <a href="{% url 'about' %}"><li><i class="fas fa-truck-moving mr-2"></i>Про нас</li></a>
+           <a href=""><li><i class="fas fa-newspaper mr-2"></i>Новости</li></a>
+
+           <a href=""><li><i class="fas fa-newspaper mr-2"></i>Транспорт</li></a>
+           <a href=""><li><i class="fas fa-newspaper mr-2"></i>Водители</li></a>
+           <a href=""><li><i class="fas fa-newspaper mr-2"></i>Заявка</li></a>
+           <a href=""><li><i class="fas fa-newspaper mr-2"></i>Договор</li></a>
+           <a href=""><li><i class="fa fa-address-book mr-2"></i>Акты о выполнении</li></a>
+
+
+        </ul>
+    </aside>
+
+
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+<script src="{% static 'main/js/jquery.min.js' %}"></script>
+<script src="{% static 'main/js/popper.js' %}"></script>
+<script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script src="{% static 'main/js/js.js' %}"></script>
+</body>
+</html>
