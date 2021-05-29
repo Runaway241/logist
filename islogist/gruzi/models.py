@@ -44,11 +44,11 @@ class Trsredstvo(models.Model):
         verbose_name_plural = 'Города'
 
 class SprSotr(models.Model):
-    kod_sotr = models.PositiveSmallIntegerField('Код сотрудника', primary_key=True)
-    daterogd = models.DateField('Дата рождения')
-    fam = models.CharField('Фамилия', max_length=50)
-    name = models.CharField('Имя', max_length=50)
-    otch = models.CharField('Отчество', max_length=50)
+    kod_sotr = models.PositiveIntegerField()
+    daterogd = models.DateField()
+    fam = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    otch = models.CharField(max_length=50)
 
     datenaim = models.DateField()
     dateokonch = models.DateField()
@@ -193,7 +193,7 @@ class Uchastnik(models.Model):
     kpp = models.PositiveIntegerField()
     kontlico = models.CharField(max_length=100)
     tel = models.PositiveIntegerField()
-    statusuch = models.BooleanField(default=False)
+    statusuch = models.CharField(max_length=100)
 
     def __str__(self):
         return self.viduch
@@ -249,7 +249,7 @@ class Dogovor(models.Model):
     datenachdog = models.DateField()
     dateokonchdog = models.DateField(default=False)
     datepodpdog = models.DateField(default=False)
-    prichrast = models.BooleanField(default=False)
+    prichrast = models.CharField(max_length=100)
 
     kod_sotr = models.PositiveIntegerField()
     kod_ts = models.PositiveIntegerField()
@@ -263,6 +263,8 @@ class Dogovor(models.Model):
     class Meta:
         verbose_name = 'Участник'
         verbose_name_plural = 'Участники'
+
+'''Документы'''
 
 class Putlist(models.Model):
     nomerdog = models.PositiveIntegerField()
@@ -338,5 +340,27 @@ class Schetopl(models.Model):
     class Meta:
         verbose_name = 'Счет на оплату'
         verbose_name_plural = 'Счет на оплату'
+
+class Ttn(models.Model):
+    nomerttn = models.PositiveIntegerField()
+    datettn = models.DateField()
+    statusttn = models.CharField(max_length=100)
+    kolvoplan = models.PositiveIntegerField()
+    kolvofact = models.PositiveIntegerField()
+    edizmttn = models.CharField(max_length=100)
+    srokdost = models.DateField(max_length=100)
+    itogstoim = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.nomerttn
+
+    def get_absolute_url(self):
+        return f'/gruzi/{self.id}'
+
+    class Meta:
+        verbose_name = 'ттн'
+        verbose_name_plural = 'ттн'
+
+
 
 

@@ -1,0 +1,40 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Участники{% endblock %}
+
+{% block content %}
+<div class="features">
+
+    <h1>Список участников</h1>
+    <table id="table_id" class="display">
+        <thead>
+        <tr>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+            <th scope="col">6</th>
+            <th scope="col">7</th>
+        </tr>
+        </thead>
+        {% for el in gruzi %}
+            <tr>
+                <td>{{ el.viduch }}</td>
+                <td>{{ el.org }}</td>
+                <td>{{ el.inn }}</td>
+                <td>{{ el.kpp }}</td>
+                <td>{{ el.kontlico }}</td>
+                <td>{{ el.tel }}</td>
+                <td>{{ el.statusuch }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a href="" class="btn btn-info"><i class="">Изменить</i></a></li>
+<a href="" class="btn btn-danger"><i class="">Удалить</i></a></li>
+
+</div>
+
+{% endblock %}ml>

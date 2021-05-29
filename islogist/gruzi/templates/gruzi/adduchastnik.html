@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавление записи {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Формирование договора</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="addform">
+                <h6 class="h6increate">Вид участника</h6>
+                {{ form.viduch }}<br>
+                <h6 class="h6increate">Организация</h6>
+                {{ form.org }}<br>
+                <h6 class="h6increate">ИНН</h6>
+                {{ form.inn }}<br>
+                <h6 class="h6increate">КПП</h6>
+                {{ form.kpp }}<br>
+                <h6 class="h6increate">Контактное лицо</h6>
+                {{ form.kontlico }}<br>
+                <h6 class="h6increate">Номер телефона</h6>
+                {{ form.tel }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+            {{ form.statusuch }}<br>
+            </div>
+            <span>{{ error }}</span>
+
+            <button class="btn btn-success" type=submit">Добавить</button>
+            <a href="" class="btn btn-info"><i>Изменить</i></a>
+            <a href="" class="btn btn-danger"><i>Удалить</i></a>
+            <a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
+
+        </form>
+
+
+    </div>
+{% endblock %}
