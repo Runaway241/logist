@@ -7,5 +7,7 @@ urlpatterns = [
     path('zaiavka', views.zaiavka, name='zaiavka'),
     path('addzaiavka', views.addzaiavka, name='addzaiavka'),
     path('dogovor', views.dogovor, name='dogovor'),
-    path('adddogovor', views.adddogovor, name='adddogovor')
+    path('adddogovor', views.adddogovor, name='adddogovor'),
+    path('sprsotr', views.sprsotr, name='sprsotr'),
+    path('addsprsotr', views.addsprsotr, name='addsprsotr'),
     ]

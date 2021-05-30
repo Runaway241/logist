@@ -3,7 +3,7 @@
 {% block title %}Участники{% endblock %}
 
 {% block content %}
-<div class="features">
+<div style='float:left' class="features">
 
     <h1>Список участников</h1>
     <table id="table_id" class="display">
@@ -31,10 +31,11 @@
         {% endfor %}
     </table>
 </div>
-<a href="" class="btn btn-info"><i class="">Добавить</i></a></li>
-<a href="" class="btn btn-info"><i class="">Изменить</i></a></li>
-<a href="" class="btn btn-danger"><i class="">Удалить</i></a></li>
-
+<div>
+    <a style="margin-left: 50px" href="" class="btn btn-info"><i class="">Добавить</i></a>
+    <a href="" class="btn btn-info"><i class="">Изменить</i></a>
+    <a href="" class="btn btn-danger"><i class="">Удалить</i></a>
 </div>
+
 
 {% endblock %}

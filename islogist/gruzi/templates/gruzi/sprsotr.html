@@ -1,11 +1,11 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Заявки{% endblock %}
+{% block title %}Сотрудники{% endblock %}
 
 {% block content %}
-<div  style='float:left' class="features">
+<div class="features">
 
-    <h1>Списко договоров</h1>
+    <h1>Список сотрудников</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
@@ -15,28 +15,20 @@
             <th scope="col">4</th>
             <th scope="col">5</th>
             <th scope="col">6</th>
+            <th scope="col">7</th>
             <th scope="col">8</th>
-            <th scope="col">9</th>
-            <th scope="col">10</th>
-            <th scope="col">11</th>
-            <th scope="col">12</th>
-
         </tr>
         </thead>
         {% for el in gruzi %}
             <tr>
-                <td>{{ el.nomerdog }}</td>
-                <td>{{ el.statusdog }}</td>
-                <td>{{ el.stoimost }}</td>
-                <td>{{ el.osobusl }}</td>
-                <td>{{ el.datesostdog }}</td>
-                <td>{{ el.daterastdog }}</td>
-                <td>{{ el.datenachdog }}</td>
-                <td>{{ el.dateokonchdog }}</td>
-                <td>{{ el.datepodpdog }}</td>
-                <td>{{ el.prichrast }}</td>
                 <td>{{ el.kod_sotr }}</td>
-                <td>{{ el.kod_ts }}</td>
+                <td>{{ el.daterogd }}</td>
+                <td>{{ el.fam }}</td>
+                <td>{{ el.name }}</td>
+                <td>{{ el.otch }}</td>
+                <td>{{ el.datenaim }}</td>
+                <td>{{ el.dateokonch }}</td>
+                <td>{{ el.dolgn }}</td>
             </tr>
         {% endfor %}
     </table>

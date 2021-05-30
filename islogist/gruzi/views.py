@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm
-from .models import Uchastnik, Zaiavka, Dogovor
+from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm
+from .models import Uchastnik, Zaiavka, Dogovor, SprSotr
 
 def uchastnik(request):
     gruzi = Uchastnik.objects.all()
@@ -61,3 +61,23 @@ def adddogovor(request):
         'error': error
     }
     return render(request, 'gruzi/adddogovor.html', data)
+
+def sprsotr(request):
+    gruzi = SprSotr.objects.all()
+    return render(request, 'gruzi/sprsotr.html', {'gruzi': gruzi})
+
+def addsprsotr(request):
+    error = ''
+    if request.method == 'POST':
+        form = addsprsotrForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sprsotr')
+        else:
+            error = 'Форма неверна'
+    form = addsprsotrForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addsprsotr.html', data)

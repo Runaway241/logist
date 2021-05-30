@@ -65,6 +65,9 @@ class SprSotr(models.Model):
         verbose_name = 'Сотрудник'
         verbose_name_plural = 'Сотрудники'
 
+
+
+
 class SprGorod(models.Model):
     naimgorod = models.CharField('Наименование города', max_length=100)
 
@@ -244,11 +247,11 @@ class Dogovor(models.Model):
     statusdog = models.CharField(max_length=100)
     stoimost = models.PositiveIntegerField()
     osobusl = models.PositiveIntegerField()
-    datesostdog = models.DateField(max_length=100)
+    datesostdog = models.DateField()
     daterastdog = models.DateField()
     datenachdog = models.DateField()
-    dateokonchdog = models.DateField(default=False)
-    datepodpdog = models.DateField(default=False)
+    dateokonchdog = models.DateField()
+    datepodpdog = models.DateField()
     prichrast = models.CharField(max_length=100)
 
     kod_sotr = models.PositiveIntegerField()

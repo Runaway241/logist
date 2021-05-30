@@ -1,5 +1,5 @@
 body {
-    background: #469C9A;
+    background: #a0c0ef;
 }
 
 aside {
@@ -44,10 +44,8 @@ aside ul li:hover, aside ul a:hover {
 }
 
 main .features {
-    float: left;
-    margin-top: 100px;
     text-align: center;
-    width: 75%;
+    width: 1210px;
 }
 
 main .features h1 {
@@ -194,12 +192,20 @@ table .dataTable {
 }
 
 .addform {
+    height: 750px;
+    width: 1210px;
     text-align: left;
     display: flex;
-    width: 100% !important;
-    justify-content: space-between
+    max-width: 1210px;
 }
+.divv1{
+    width: 400px;
+    margin-right: 20px;
+}
+.divv2{
+    width: 400px;
 
+}
 .form-control {
     display: block;
     width: 100%;

@@ -141,3 +141,37 @@ class adddogovorForm(ModelForm):
             }),
 
         }
+
+class addsprsotrForm(ModelForm):
+    class Meta:
+        fields = ['kod_sotr', 'daterogd', 'fam', 'name', 'otch', 'datenaim', 'dateokonch', 'dolgn']
+        model = SprSotr
+        widgets = {
+            'kod_sotr': TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'daterogd': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'fam': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'name': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'otch': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'datenaim': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'dateokonch': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'dolgn': TextInput(attrs={
+                'class': 'form-control'
+            }),
+        }

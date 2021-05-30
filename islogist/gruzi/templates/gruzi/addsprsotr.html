@@ -2,25 +2,28 @@
 
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
-    <div style='margin: auto'class="features">
+    <div class="features">
         <h1>Формирование договора</h1>
         <form method="post">
             {% csrf_token %}
             <div class="addform1">
-                <h6 class="h6increate">Вид участника</h6>
-                {{ form.viduch }}<br>
-                <h6 class="h6increate">Организация</h6>
-                {{ form.org }}<br>
+                <h6 class="h6increate"></h6>
+                {{ form.kod_sotr }}<br>
+                <h6 class="h6increate"></h6>
+                {{ form.daterogd }}<br>
                 <h6 class="h6increate">ИНН</h6>
-                {{ form.inn }}<br>
+                {{ form.fam }}<br>
                 <h6 class="h6increate">КПП</h6>
-                {{ form.kpp }}<br>
+                {{ form.name }}<br>
                 <h6 class="h6increate">Контактное лицо</h6>
-                {{ form.kontlico }}<br>
+                {{ form.otch }}<br>
                 <h6 class="h6increate">Номер телефона</h6>
-                {{ form.tel }}<br>
+                {{ form.datenaim }}<br>
                 <h6 class="h6increate">Статус участника</h6>
-                {{ form.statusuch }}<br>
+                {{ form.dateokonch }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+                {{ form.dolgn }}<br>
+
             </div>
             <span>{{ error }}</span>
 

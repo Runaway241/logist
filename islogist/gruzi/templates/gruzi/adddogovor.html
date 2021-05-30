@@ -2,32 +2,34 @@
 
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
-    <div class="features">
+    <div style='margin: auto' class="features">
         <h1>Формирование договора</h1>
         <form method="post">
             {% csrf_token %}
-            <div class="addform">
-                <h6 class="h6increate">Вид участника</h6>
+            <div class="addform1">
+                <h6 class="h6increate">Номер договора</h6>
                 {{ form.nomerdog }}<br>
-                <h6 class="h6increate">Организация</h6>
+                <h6 class="h6increate">Статус договора</h6>
                 {{ form.statusdog }}<br>
-                <h6 class="h6increate">ИНН</h6>
+                <h6 class="h6increate">Стоимость</h6>
                 {{ form.stoimost }}<br>
-                <h6 class="h6increate">КПП</h6>
+                <h6 class="h6increate">Особые условия</h6>
                 {{ form.osobusl }}<br>
-                <h6 class="h6increate">Контактное лицо</h6>
+                <h6 class="h6increate">Дата составления договора</h6>
                 {{ form.datesostdog }}<br>
-                <h6 class="h6increate">Номер телефона</h6>
+                <h6 class="h6increate">Дата расторжения договора</h6>
                 {{ form.datenachdog }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">Дата начала договора</h6>
                 {{ form.dateokonchdog }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">Дата окончания договора</h6>
                 {{ form.datepodpdog }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">Дата подписи договора</h6>
                 {{ form.prichrast }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">Причина расторжения</h6>
                 {{ form.kod_sotr }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">Водитель</h6>
+                {{ form.kod_ts }}<br>
+                <h6 class="h6increate">Транспортное средство</h6>
                 {{ form.kod_ts }}<br>
             </div>
             <span>{{ error }}</span>
