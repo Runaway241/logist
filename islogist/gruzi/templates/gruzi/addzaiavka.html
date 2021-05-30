@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Заявки {% endblock %}
+{% block content %}
+    <div class="features">
+        <h1>Формирование заявки</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="addform">
+                <div class="divv">
+                    <h6 class="h6increate">1</h6>
+                    {{ form.nomerzai }}<br>
+                    <h6 class="h6increate">2</h6>
+                    {{ form.datezai }}<br>
+                    <h6 class="h6increate">3</h6>
+                    {{ form.gruzopr }}<br>
+                    <h6 class="h6increate">4</h6>
+                    {{ form.gruzpoluch }}<br>
+                    <h6 class="h6increate">5</h6>
+                    {{ form.adr_gruzopr }}<br>
+                    <h6 class="h6increate">6</h6>
+                    {{ form.adr_gruzpoluch }}<br>
+                    <h6 class="h6increate">7</h6>
+                    {{ form.datepogr }}<br>
+                    <h6 class="h6increate">8</h6>
+                    {{ form.daterazgr }}<br>
+                    <h6 class="h6increate">9</h6>
+                    {{ form.statuszai }}<br>
+                </div>
+                <div class="divv">
+                    <h6 class="h6increate">10</h6>
+                    {{ form.zakazch }}<br>
+                    <h6 class="h6increate">11</h6>
+                    {{ form.naimgruza }}<br>
+                    <h6 class="h6increate">12</h6>
+                    {{ form.edizm }}<br>
+                    <h6 class="h6increate">13</h6>
+                    {{ form.kolvo }}<br>
+                    <h6 class="h6increate">14</h6>
+                    {{ form.tipgruza }}<br>
+                    <h6 class="h6increate">15</h6>
+                    {{ form.massa }}<br>
+                    <h6 class="h6increate">16</h6>
+                    {{ form.gabdlina }}<br>
+                    <h6 class="h6increate">17</h6>
+                    {{ form.gabshir }}<br>
+                    <h6 class="h6increate">18</h6>
+                    {{ form.gabvisot }}<br>
+
+
+                </div>
+            </div>
+            <span>{{ error }}</span>
+
+            <button class="btn btn-success" type=submit">Добавить</button>
+            <a href="" class="btn btn-info"><i>Изменить</i></a>
+            <a href="" class="btn btn-danger"><i>Удалить</i></a>
+            <a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
+
+        </form>
+
+
+    </div>
+{% endblock %}

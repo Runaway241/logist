@@ -8,19 +8,27 @@
             {% csrf_token %}
             <div class="addform">
                 <h6 class="h6increate">Вид участника</h6>
-                {{ form.viduch }}<br>
+                {{ form.nomerdog }}<br>
                 <h6 class="h6increate">Организация</h6>
-                {{ form.org }}<br>
+                {{ form.statusdog }}<br>
                 <h6 class="h6increate">ИНН</h6>
-                {{ form.inn }}<br>
+                {{ form.stoimost }}<br>
                 <h6 class="h6increate">КПП</h6>
-                {{ form.kpp }}<br>
+                {{ form.osobusl }}<br>
                 <h6 class="h6increate">Контактное лицо</h6>
-                {{ form.kontlico }}<br>
+                {{ form.datesostdog }}<br>
                 <h6 class="h6increate">Номер телефона</h6>
-                {{ form.tel }}<br>
+                {{ form.datenachdog }}<br>
                 <h6 class="h6increate">Статус участника</h6>
-                {{ form.statusuch }}<br>
+                {{ form.dateokonchdog }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+                {{ form.datepodpdog }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+                {{ form.prichrast }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+                {{ form.kod_sotr }}<br>
+                <h6 class="h6increate">Статус участника</h6>
+                {{ form.kod_ts }}<br>
             </div>
             <span>{{ error }}</span>
 
