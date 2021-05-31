@@ -3,22 +3,24 @@
 {% block title %}Заявки{% endblock %}
 
 {% block content %}
-<div style='float:left;' class="features">
+<div style='float:left; font-size: 10px'' class="features">
 
     <h1>Списко заявок</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">1</th>
-            <th scope="col">2</th>
-            <th scope="col">3</th>
-            <th scope="col">4</th>
-            <th scope="col">5</th>
-            <th scope="col">6</th>
-            <th scope="col">8</th>
-            <th scope="col">9</th>
-            <th scope="col">10</th>
-            <th scope="col">11</th>
+            <th scope="col">Номер заявки</th>
+            <th scope="col">Дата заявки</th>
+            <th scope="col">Грузоотправитель</th>
+            <th scope="col">Грузополучатель</th>
+            <th scope="col">Адрес отправителя</th>
+            <th scope="col">Адрес получателя</th>
+            <th scope="col">Дата погрузки</th>
+            <th scope="col">Дата разгрузки</th>
+            <th scope="col">Статус заявки</th>
+            <th scope="col">Заказчик</th>
+            <th scope="col">Наименование груза</th>
+            <th scope="col">Опции</th>
 
         </tr>
         </thead>
@@ -32,16 +34,18 @@
                 <td>{{ el.adr_gruzpoluch }}</td>
                 <td>{{ el.datepogr }}</td>
                 <td>{{ el.daterazgr }}</td>
-                <td>{{ el.naimgruza }}</td>
-                <td>{{ el.massa }}</td>
                 <td>{{ el.statuszai }}</td>
+                <td>{{ el.zakazch }}</td>
+                <td>{{ el.naimgruza }}</td>
+                <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
+                  <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
+                </td>
             </tr>
         {% endfor %}
     </table>
 </div>
-<a href="" class="btn btn-info"><i class="">Добавить</i></a></li>
-<a href="" class="btn btn-info"><i class="">Изменить</i></a></li>
-<a href="" class="btn btn-danger"><i class="">Удалить</i></a></li>
+<a style="margin-left: 50px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+
 
 </div>
 

@@ -17,8 +17,7 @@ class SprMarka(models.Model):
 
 class SprModel(models.Model):
     naimmodel = models.CharField('Наименование модели тс', max_length=100)
-
-
+    naimmarka = models.CharField('Наименование марки тс', max_length=100, default='')
 
     def __str__(self):
         return self.naimmodel
@@ -33,6 +32,18 @@ class SprModel(models.Model):
 class Trsredstvo(models.Model):
     gosnomer = models.CharField('Гос номер', max_length=10)
 
+    naimmodel = models.CharField('Наименование модели тс', max_length=100, default='')
+    naimmarka = models.CharField('Наименование марки тс', max_length=100, default='')
+
+    naimvidts = models.CharField('Наименование вида ТС', max_length=100, default='')
+
+    tipkuzova = models.CharField('Тип кузова', max_length=100, default='')
+    gabdlina = models.CharField('Габариты длина', max_length=100, default='')
+    gabshir = models.CharField('Габариты ширина', max_length=100, default='')
+    gabvis = models.CharField('Габариты высота', max_length=100, default='')
+    maxdopustmassa = models.CharField('Максимально допустимая масса', max_length=100, default='')
+    sposobpogr = models.CharField('Способ погрузки', max_length=100, default='')
+
     def __str__(self):
         return self.gosnomer
 
@@ -40,20 +51,23 @@ class Trsredstvo(models.Model):
         return f'/gruzi/{self.id}'
 
     class Meta:
-        verbose_name = 'Город'
-        verbose_name_plural = 'Города'
+        verbose_name = 'Спр.транспортное средство'
+        verbose_name_plural = 'Спр.транспортные средства'
 
 class SprSotr(models.Model):
-    kod_sotr = models.PositiveIntegerField()
+    kod_sotr = models.CharField('Код сотрудника', max_length=100)
     daterogd = models.DateField()
     fam = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     otch = models.CharField(max_length=50)
 
     datenaim = models.DateField()
-    dateokonch = models.DateField()
+    dateokonch = models.DateField(null=True)
 
     dolgn = models.CharField(max_length=50)
+
+    pasport = models.CharField(max_length=50)
+    vodud = models.CharField(max_length=50)
 
     def __str__(self):
         return self.kod_sotr
@@ -64,9 +78,6 @@ class SprSotr(models.Model):
     class Meta:
         verbose_name = 'Сотрудник'
         verbose_name_plural = 'Сотрудники'
-
-
-
 
 class SprGorod(models.Model):
     naimgorod = models.CharField('Наименование города', max_length=100)
@@ -192,10 +203,10 @@ class SprVidharts(models.Model):
 class Uchastnik(models.Model):
     viduch = models.CharField(max_length=100)
     org = models.CharField(max_length=100)
-    inn = models.PositiveIntegerField()
-    kpp = models.PositiveIntegerField()
+    inn = models.CharField(max_length=50)
+    kpp = models.CharField(max_length=50)
     kontlico = models.CharField(max_length=100)
-    tel = models.PositiveIntegerField()
+    tel = models.CharField(max_length=50)
     statusuch = models.CharField(max_length=100)
 
     def __str__(self):
@@ -209,7 +220,7 @@ class Uchastnik(models.Model):
         verbose_name_plural = 'Участники'
 
 class Zaiavka(models.Model):
-    nomerzai = models.CharField(max_length=100)
+    nomerzai = models.CharField(max_length=50)
     datezai = models.DateField()
 
     gruzopr = models.CharField(max_length=100)
@@ -225,12 +236,12 @@ class Zaiavka(models.Model):
 
     naimgruza = models.CharField(max_length=100)
     edizm = models.CharField(max_length=100)
-    kolvo = models.PositiveIntegerField()
+    kolvo = models.CharField(max_length=50)
     tipgruza = models.CharField(max_length=100)
-    massa = models.DecimalField(max_digits=2, decimal_places=2)
-    gabdlina = models.DecimalField(max_digits=2, decimal_places=2)
-    gabshir = models.DecimalField(max_digits=2, decimal_places=2)
-    gabvisot = models.DecimalField(max_digits=2, decimal_places=2)
+    massa = models.CharField(max_length=50)
+    gabdlina = models.CharField(max_length=50)
+    gabshir = models.CharField(max_length=50)
+    gabvisot = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nomerzai
@@ -243,22 +254,24 @@ class Zaiavka(models.Model):
         verbose_name_plural = 'Заявки'
 
 class Dogovor(models.Model):
-    nomerdog = models.PositiveIntegerField()
+    nomerdog = models.CharField(max_length=100)
     statusdog = models.CharField(max_length=100)
-    stoimost = models.PositiveIntegerField()
-    osobusl = models.PositiveIntegerField()
+    stoimost = models.CharField(max_length=50)
+    osobusl = models.CharField(max_length=500, null=True, blank=True)
     datesostdog = models.DateField()
-    daterastdog = models.DateField()
+    daterastdog = models.DateField(null=True, blank=True)
     datenachdog = models.DateField()
     dateokonchdog = models.DateField()
     datepodpdog = models.DateField()
-    prichrast = models.CharField(max_length=100)
+    prichrast = models.CharField(max_length=100, null=True, blank=True)
 
-    kod_sotr = models.PositiveIntegerField()
-    kod_ts = models.PositiveIntegerField()
+    kod_sotr = models.CharField(max_length=50)
+    kod_ts = models.CharField(max_length=50)
+
+    nomerzai = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.viduch
+        return self.nomerdog
 
     def get_absolute_url(self):
         return f'/gruzi/{self.id}'
@@ -270,17 +283,17 @@ class Dogovor(models.Model):
 '''Документы'''
 
 class Putlist(models.Model):
-    nomerdog = models.PositiveIntegerField()
+    nomerdog = models.CharField(max_length=50)
 
-    nomerputlist = models.PositiveIntegerField()
+    nomerputlist = models.CharField(max_length=50)
     datesostputlist = models.DateField()
     statusputlist = models.CharField(max_length=100)
     dateviezd = models.DateField()
-    nachpokazodo = models.PositiveIntegerField()
+    nachpokazodo = models.CharField(max_length=50)
     datevozvr = models.DateField()
-    konechpokazodo = models.PositiveIntegerField()
-    ostgoruchviezd = models.PositiveIntegerField()
-    ostgoruchvozvr = models.PositiveIntegerField()
+    konechpokazodo = models.CharField(max_length=50)
+    ostgoruchviezd = models.CharField(max_length=50)
+    ostgoruchvozvr = models.CharField(max_length=50)
     srokputlist = models.CharField(max_length=100)
 
     def __str__(self):
@@ -294,10 +307,10 @@ class Putlist(models.Model):
         verbose_name_plural = 'ттн'
 
 class Schetfact(models.Model):
-    nomerschetfact = models.PositiveIntegerField()
+    nomerschetfact = models.CharField(max_length=50)
     datesostschetfact = models.DateField()
     statusschetfact = models.CharField(max_length=100)
-    nalstav =  models.DecimalField(max_digits=2, decimal_places=2)
+    nalstav =  models.CharField(max_length=50)
 
     def __str__(self):
         return self.nomerschetfact
@@ -310,7 +323,7 @@ class Schetfact(models.Model):
         verbose_name_plural = 'Счет фактура'
 
 class Actovipoln(models.Model):
-    nomeract = models.PositiveIntegerField()
+    nomeract = models.CharField(max_length=50)
     dateact = models.DateField()
     statusact = models.CharField(max_length=100)
     dates = models.DateField()
@@ -327,11 +340,11 @@ class Actovipoln(models.Model):
         verbose_name_plural = 'Акт о выполненной работе'
 
 class Schetopl(models.Model):
-    nomerschet = models.PositiveIntegerField()
+    nomerschet = models.CharField(max_length=50)
     dateschet = models.DateField()
     statusschet = models.CharField(max_length=100)
-    nomerschetpoluch = models.PositiveIntegerField()
-    summa = models.PositiveIntegerField()
+    nomerschetpoluch = models.CharField(max_length=50)
+    summa = models.CharField(max_length=50)
     poluchatel = models.CharField(max_length=100)
 
     def __str__(self):
@@ -345,14 +358,14 @@ class Schetopl(models.Model):
         verbose_name_plural = 'Счет на оплату'
 
 class Ttn(models.Model):
-    nomerttn = models.PositiveIntegerField()
+    nomerttn = models.CharField(max_length=50)
     datettn = models.DateField()
     statusttn = models.CharField(max_length=100)
-    kolvoplan = models.PositiveIntegerField()
-    kolvofact = models.PositiveIntegerField()
+    kolvoplan = models.CharField(max_length=50)
+    kolvofact = models.CharField(max_length=50)
     edizmttn = models.CharField(max_length=100)
     srokdost = models.DateField(max_length=100)
-    itogstoim = models.PositiveIntegerField()
+    itogstoim = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nomerttn

@@ -2,14 +2,14 @@
 
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
-    <div class="features">
+    <div  style='margin: auto' class="features">
         <h1>Формирование договора</h1>
         <form method="post">
             {% csrf_token %}
             <div class="addform1">
-                <h6 class="h6increate"></h6>
+                <h6 class="h6increate">ИНН</h6>
                 {{ form.kod_sotr }}<br>
-                <h6 class="h6increate"></h6>
+                <h6 class="h6increate">ИНН</h6>
                 {{ form.daterogd }}<br>
                 <h6 class="h6increate">ИНН</h6>
                 {{ form.fam }}<br>
@@ -19,9 +19,9 @@
                 {{ form.otch }}<br>
                 <h6 class="h6increate">Номер телефона</h6>
                 {{ form.datenaim }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">9</h6>
                 {{ form.dateokonch }}<br>
-                <h6 class="h6increate">Статус участника</h6>
+                <h6 class="h6increate">10</h6>
                 {{ form.dolgn }}<br>
 
             </div>

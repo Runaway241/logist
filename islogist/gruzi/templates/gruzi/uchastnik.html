@@ -9,13 +9,14 @@
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">1</th>
-            <th scope="col">2</th>
-            <th scope="col">3</th>
-            <th scope="col">4</th>
-            <th scope="col">5</th>
-            <th scope="col">6</th>
-            <th scope="col">7</th>
+            <th scope="col">Вид участника</th>
+            <th scope="col">Организация</th>
+            <th scope="col">ИНН</th>
+            <th scope="col">КПП</th>
+            <th scope="col">Контактное лицо</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Статус участника</th>
+            <th scope="col">Опции</th>
         </tr>
         </thead>
         {% for el in gruzi %}
@@ -27,14 +28,16 @@
                 <td>{{ el.kontlico }}</td>
                 <td>{{ el.tel }}</td>
                 <td>{{ el.statusuch }}</td>
+                <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
+                  <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
+                </td>
             </tr>
         {% endfor %}
     </table>
 </div>
 <div>
     <a style="margin-left: 50px" href="" class="btn btn-info"><i class="">Добавить</i></a>
-    <a href="" class="btn btn-info"><i class="">Изменить</i></a>
-    <a href="" class="btn btn-danger"><i class="">Удалить</i></a>
+
 </div>
 
 

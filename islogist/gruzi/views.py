@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm
-from .models import Uchastnik, Zaiavka, Dogovor, SprSotr
+from .models import Uchastnik, Zaiavka, Dogovor, SprSotr, SprModel, SprMarka, Trsredstvo, SprDolgn, SprTipgruza, \
+    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts
+
 
 def uchastnik(request):
     gruzi = Uchastnik.objects.all()
@@ -81,3 +83,36 @@ def addsprsotr(request):
         'error': error
     }
     return render(request, 'gruzi/addsprsotr.html', data)
+
+'''Справочники'''
+def sprmarka(request):
+    gruzi = SprMarka.objects.all()
+    return render(request, 'gruzi/sprmarka.html', {'gruzi': gruzi})
+def sprmodel(request):
+    gruzi = SprModel.objects.all()
+    return render(request, 'gruzi/sprmodel.html', {'gruzi': gruzi})
+def trsredstvo(request):
+    gruzi = Trsredstvo.objects.all()
+    return render(request, 'gruzi/trsredstvo.html', {'gruzi': gruzi})
+def dolgn(request):
+    gruzi = SprDolgn.objects.all()
+    return render(request, 'gruzi/dolgn.html', {'gruzi': gruzi})
+def sprtipgruza(request):
+    gruzi = SprTipgruza.objects.all()
+    return render(request, 'gruzi/sprtipgruza.html', {'gruzi': gruzi})
+def sprgruza(request):
+    gruzi = SprGruza.objects.all()
+    return render(request, 'gruzi/sprgruza.html', {'gruzi': gruzi})
+def sprvidts(request):
+    gruzi = SprVidts.objects.all()
+    return render(request, 'gruzi/sprvidts.html', {'gruzi': gruzi})
+def sprtovar(request):
+    gruzi = SprTovar.objects.all()
+    return render(request, 'gruzi/sprtovar.html', {'gruzi': gruzi})
+def sprorg(request):
+    gruzi = SprOrg.objects.all()
+    return render(request, 'gruzi/sprorg.html', {'gruzi': gruzi})
+def sprvidharts(request):
+    gruzi = SprVidharts.objects.all()
+    return render(request, 'gruzi/sprvidharts.html', {'gruzi': gruzi})
+

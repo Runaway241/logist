@@ -144,7 +144,7 @@ class adddogovorForm(ModelForm):
 
 class addsprsotrForm(ModelForm):
     class Meta:
-        fields = ['kod_sotr', 'daterogd', 'fam', 'name', 'otch', 'datenaim', 'dateokonch', 'dolgn']
+        fields = ['kod_sotr', 'daterogd', 'fam', 'name', 'otch', 'datenaim', 'dateokonch', 'dolgn','pasport','vodud']
         model = SprSotr
         widgets = {
             'kod_sotr': TextInput(attrs={
@@ -172,6 +172,12 @@ class addsprsotrForm(ModelForm):
                 'type': 'date'
             }),
             'dolgn': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'pasport': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'vodud': TextInput(attrs={
                 'class': 'form-control'
             }),
         }

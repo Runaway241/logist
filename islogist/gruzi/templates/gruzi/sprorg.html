@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Сотрудники{% endblock %}
+
+{% block content %}
+<div style='float:left;' class="features">
+
+    <h1>Список сотрудников</h1>
+    <table id="table_id" class="display">
+        <thead>
+        <tr>
+            <th scope="col">1</th>
+
+        </tr>
+        </thead>
+        {% for el in gruzi %}
+            <tr>
+                <td>{{ el.naimorg }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<a style="margin-left: 50px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a href="" class="btn btn-info"><i class="">Изменить</i></a></li>
+<a href="" class="btn btn-danger"><i class="">Удалить</i></a></li>
+
+</div>
+
+{% endblock %}
