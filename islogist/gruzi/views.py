@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm
+from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm, addactovipolnForm, addschetoplForm
 from .models import Uchastnik, Zaiavka, Dogovor, SprSotr, SprModel, SprMarka, Trsredstvo, SprDolgn, SprTipgruza, \
-    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts
+    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl
 
 
 def uchastnik(request):
@@ -83,6 +83,46 @@ def addsprsotr(request):
         'error': error
     }
     return render(request, 'gruzi/addsprsotr.html', data)
+
+def actovipoln(request):
+    gruzi = Actovipoln.objects.all()
+    return render(request, 'gruzi/actovipoln.html', {'gruzi': gruzi})
+
+def addactovipoln(request):
+    error = ''
+    if request.method == 'POST':
+        form = addactovipolnForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('actovipoln')
+        else:
+            error = 'Форма неверна'
+    form = addactovipolnForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addactovipoln.html', data)
+
+def schetopl(request):
+    gruzi = Schetopl.objects.all()
+    return render(request, 'gruzi/schetopl.html', {'gruzi': gruzi})
+
+def addschetopl(request):
+    error = ''
+    if request.method == 'POST':
+        form = addschetoplForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('schetopl')
+        else:
+            error = 'Форма неверна'
+    form = addschetoplForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addschetopl.html', data)
 
 '''Справочники'''
 def sprmarka(request):

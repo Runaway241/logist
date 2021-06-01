@@ -3,33 +3,36 @@
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
     <div  style='margin: auto' class="features">
-        <h1>Формирование договора</h1>
+        <h1>Заполнение справочника "Сотрудник"</h1>
         <form method="post">
             {% csrf_token %}
             <div class="addform1">
-                <h6 class="h6increate">ИНН</h6>
+                <h6 class="h6increate">Код сотрудника</h6>
                 {{ form.kod_sotr }}<br>
-                <h6 class="h6increate">ИНН</h6>
+                <h6 class="h6increate">Дата рождения</h6>
                 {{ form.daterogd }}<br>
-                <h6 class="h6increate">ИНН</h6>
+                <h6 class="h6increate">Фамилия</h6>
                 {{ form.fam }}<br>
-                <h6 class="h6increate">КПП</h6>
+                <h6 class="h6increate">Имя</h6>
                 {{ form.name }}<br>
-                <h6 class="h6increate">Контактное лицо</h6>
+                <h6 class="h6increate">Отчество</h6>
                 {{ form.otch }}<br>
-                <h6 class="h6increate">Номер телефона</h6>
+                <h6 class="h6increate">Дата найма</h6>
                 {{ form.datenaim }}<br>
-                <h6 class="h6increate">9</h6>
+                <h6 class="h6increate">Дата оконания</h6>
                 {{ form.dateokonch }}<br>
-                <h6 class="h6increate">10</h6>
+                <h6 class="h6increate">Должность</h6>
                 {{ form.dolgn }}<br>
+                <h6 class="h6increate">Паспорт</h6>
+                {{ form.pasport }}<br>
+                <h6 class="h6increate">Водительское удостоверение</h6>
+                {{ form.vodud }}<br>
 
             </div>
             <span>{{ error }}</span>
 
             <button class="btn btn-success" type=submit">Добавить</button>
-            <a href="" class="btn btn-info"><i>Изменить</i></a>
-            <a href="" class="btn btn-danger"><i>Удалить</i></a>
+
             <a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
 
         </form>

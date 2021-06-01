@@ -7,7 +7,7 @@ aside {
     background: #B3DAD5;
     width: 17%;
     padding: 2.5%;
-    height: 100vh;
+    height: 500vh;
     color: #fff;
     border-right: 5px solid #d62424;
 }
@@ -192,18 +192,21 @@ table .dataTable {
 }
 
 .addform {
-    height: 750px;
+    height: auto;
     width: 1210px;
     text-align: left;
     display: flex;
     max-width: 1210px;
+    margin-left: -120px;
+
 }
 .divv1{
     width: 400px;
-    margin-right: 20px;
+    margin-right: 150px;
 }
 .divv2{
     width: 400px;
+
 
 }
 .form-control {
@@ -222,7 +225,8 @@ table .dataTable {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 .tableinadd{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+
 }
 .tableinadd th {
   font-weight: normal;

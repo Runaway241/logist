@@ -97,15 +97,15 @@ class addzaiavkarForm(ModelForm):
 class adddogovorForm(ModelForm):
     class Meta:
         fields = ['nomerdog', 'statusdog', 'stoimost', 'osobusl', 'datesostdog', 'daterastdog', 'datenachdog',
-                  'dateokonchdog', 'datepodpdog', 'prichrast', 'kod_sotr', 'kod_ts']
+                  'dateokonchdog', 'datepodpdog', 'prichrast', 'fiosotr', 'marka', 'gosnomer', 'nomerzai', 'datezai']
         model = Dogovor
         widgets = {
             'nomerdog': TextInput(attrs={
             'class': 'form-control'
             }),
-            'statusdog': DateInput(attrs={
-                'class': 'form-control',
-                'type': 'date'
+            'statusdog': TextInput(attrs={
+                'class': 'form-control'
+
             }),
             'stoimost': TextInput(attrs={
                 'class': 'form-control'
@@ -113,11 +113,13 @@ class adddogovorForm(ModelForm):
             'osobusl': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'datesostdog': TextInput(attrs={
-                'class': 'form-control'
+            'datesostdog': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
             }),
-            'daterastdog': TextInput(attrs={
-                'class': 'form-control'
+            'daterastdog': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
             }),
             'datenachdog': DateInput(attrs={
                 'class': 'form-control',
@@ -127,19 +129,28 @@ class adddogovorForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'datepodpdog': TextInput(attrs={
-                'class': 'form-control'
+            'datepodpdog': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date',
             }),
             'prichrast': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'kod_sotr': TextInput(attrs={
+            'fiosotr': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'kod_ts': TextInput(attrs={
+            'marka': TextInput(attrs={
                 'class': 'form-control'
             }),
-
+            'gosnomer': TextInput(attrs={
+            'nomerzai': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'datezai': DateInput(attrs={
+                'class': 'form-control',
+                'type':'date',
+            }),
+            }),
         }
 
 class addsprsotrForm(ModelForm):
@@ -178,6 +189,91 @@ class addsprsotrForm(ModelForm):
                 'class': 'form-control'
             }),
             'vodud': TextInput(attrs={
+                'class': 'form-control'
+            }),
+        }
+
+class addactovipolnForm(ModelForm):
+    class Meta:
+        fields = ['nomeract', 'dateact', 'statusact', 'dates', 'datepo', 'pretenz', 'datepodpis', 'zakazch','fios']
+        model = Actovipoln
+        widgets = {
+            'nomeract': TextInput(attrs={
+            'class': 'form-control'
+            }),
+            'dateact': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'statusact': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'dates': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'datepo': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'pretenz': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'datepodpis': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'zakazch': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'fios': TextInput(attrs={
+                'class': 'form-control'
+            }),
+        }
+
+class addschetoplForm(ModelForm):
+    class Meta:
+        fields = ['nomerschet', 'nomerdog', 'dateschet', 'statusschet', 'nomerschetpoluch', 'summa', 'poluchatel', 'zakazch','bank', 'schetbanka','bik', 'sostavil']
+        model = Schetopl
+        widgets = {
+            'nomerschet': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'nomerdog': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'dateschet': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'statusschet': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'nomerschetpoluch': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'summa': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'poluchatel': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'zakazch': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'bank': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'schetbanka': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'bik': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'sostavil': TextInput(attrs={
                 'class': 'form-control'
             }),
         }

@@ -30,6 +30,7 @@ class SprModel(models.Model):
         verbose_name_plural = 'Модели тс'
 
 class Trsredstvo(models.Model):
+    kod_ts = models.CharField('Гос номер', max_length=10, blank=True)
     gosnomer = models.CharField('Гос номер', max_length=10)
 
     naimmodel = models.CharField('Наименование модели тс', max_length=100, default='')
@@ -62,7 +63,7 @@ class SprSotr(models.Model):
     otch = models.CharField(max_length=50)
 
     datenaim = models.DateField()
-    dateokonch = models.DateField(null=True)
+    dateokonch = models.DateField(null=True, blank=True)
 
     dolgn = models.CharField(max_length=50)
 
@@ -265,10 +266,13 @@ class Dogovor(models.Model):
     datepodpdog = models.DateField()
     prichrast = models.CharField(max_length=100, null=True, blank=True)
 
-    kod_sotr = models.CharField(max_length=50)
-    kod_ts = models.CharField(max_length=50)
+    fiosotr = models.CharField(max_length=50)
+
+    marka = models.CharField(max_length=50, blank=True)
+    gosnomer = models.CharField(max_length=50, blank=True)
 
     nomerzai = models.CharField(max_length=50)
+    datezai = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.nomerdog
@@ -277,8 +281,8 @@ class Dogovor(models.Model):
         return f'/gruzi/{self.id}'
 
     class Meta:
-        verbose_name = 'Участник'
-        verbose_name_plural = 'Участники'
+        verbose_name = 'Договор'
+        verbose_name_plural = 'Договора'
 
 '''Документы'''
 
@@ -296,6 +300,7 @@ class Putlist(models.Model):
     ostgoruchvozvr = models.CharField(max_length=50)
     srokputlist = models.CharField(max_length=100)
 
+
     def __str__(self):
         return self.nomerdog, self.nomerputlist
 
@@ -303,8 +308,8 @@ class Putlist(models.Model):
         return f'/gruzi/{self.id}'
 
     class Meta:
-        verbose_name = 'ттн'
-        verbose_name_plural = 'ттн'
+        verbose_name = 'Путевой лист'
+        verbose_name_plural = 'Путевые листы'
 
 class Schetfact(models.Model):
     nomerschetfact = models.CharField(max_length=50)
@@ -320,7 +325,7 @@ class Schetfact(models.Model):
 
     class Meta:
         verbose_name = 'Счет фактура'
-        verbose_name_plural = 'Счет фактура'
+        verbose_name_plural = 'Счет фактуры'
 
 class Actovipoln(models.Model):
     nomeract = models.CharField(max_length=50)
@@ -328,6 +333,11 @@ class Actovipoln(models.Model):
     statusact = models.CharField(max_length=100)
     dates = models.DateField()
     datepo = models.DateField()
+    pretenz = models.CharField(max_length=100, blank=True)
+    datepodpis = models.DateField(null=True, blank=True)
+
+    zakazch = models.CharField(max_length=100, blank=True)
+    fios = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.nomeract
@@ -337,15 +347,24 @@ class Actovipoln(models.Model):
 
     class Meta:
         verbose_name = 'Акт о выполненной работе'
-        verbose_name_plural = 'Акт о выполненной работе'
+        verbose_name_plural = 'Акты о выполненной работе'
 
 class Schetopl(models.Model):
     nomerschet = models.CharField(max_length=50)
+    nomerdog = models.CharField(max_length=50, blank=True)
+
     dateschet = models.DateField()
     statusschet = models.CharField(max_length=100)
     nomerschetpoluch = models.CharField(max_length=50)
     summa = models.CharField(max_length=50)
     poluchatel = models.CharField(max_length=100)
+
+    zakazch = models.CharField(max_length=100, blank=True)
+    bank = models.CharField(max_length=100, blank=True)
+    schetbanka = models.CharField(max_length=100, blank=True)
+    bik = models.CharField(max_length=100, blank=True)
+
+    sostavil = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.nomerschet
@@ -358,6 +377,7 @@ class Schetopl(models.Model):
         verbose_name_plural = 'Счет на оплату'
 
 class Ttn(models.Model):
+
     nomerttn = models.CharField(max_length=50)
     datettn = models.DateField()
     statusttn = models.CharField(max_length=100)

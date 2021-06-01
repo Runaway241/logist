@@ -24,3 +24,4 @@ admin.site.register(Schetfact)
 admin.site.register(Actovipoln)
 admin.site.register(Schetopl)
 admin.site.register(Ttn)
+

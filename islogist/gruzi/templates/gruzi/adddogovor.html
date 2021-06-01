@@ -7,25 +7,52 @@
         <form method="post">
             {% csrf_token %}
             <div class="addform1">
-                <h6 class="h6increate">Номер договора</h6>
-                {{ form.nomerdog }}<br>
-                <table class="tableinadd">
+                <h6>Заявка</h6>
+<table style='font-size: 10px; margin-left: -230px' class="tableinadd">
   <tr>
-    <th>№ п/п</th>
-    <th>Наименование</th>
-    <th>Цена, руб.</th>
+    <th>Номер заявки </th>
+    <th>Дата заявки</th>
+    <th>Грузоотправитель</th>
+    <th>Грузополучатель</th>
+    <th>Адрес отправителя</th>
+    <th>Адрес получателя</th>
+    <th>Дата погрузки</th>
+    <th>Дата разгрузки</th>
+    <th>Статус заявки</th>
+    <th>Заказчик</th>
+    <th>Наименвоние груза</th>
+    <th>Единица измерения</th>
+    <th>Количество</th>
+    <th>Тип груза</th>
+    <th>Масса</th>
+    <th>Габариты: длина</th>
+    <th>Габариты: ширина</th>
+    <th>Габариты: высота</th>
+
   </tr>
   <tr>
+    <td>123</td>
+    <td>31.05.2021</td>
+    <td>ООО «МеталлСервис»</td>
+    <td>ООО «Нева Сталь Строй»</td>
+    <td>Карачаровская металло-база, г. Москва, ул. Стахановская, 19</td>
+    <td>Северодвинск , Архангельское шоссе 24</td>
+    <td>07.06.2021</td>
+    <td>08.06.2021</td>
+    <td>Одобрено</td>
+    <td>ИП Копосова Мария Сергеевна</td>
+    <td>Металл (трубы, листы)</td>
+    <td>т</td>
+    <td>20</td>
+    <td>Штучные</td>
+    <td>14</td>
+    <td>10</td>
     <td>1</td>
-    <td>Карандаш цветной</td>
-    <td>20,00</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Линейка 20 см</td>
-    <td>30,00</td>
+    <td>1.5</td>
   </tr>
 </table>
+                <h6 class="h6increate">Номер договора</h6>
+                {{ form.nomerdog }}<br>
                 <h6 class="h6increate">Статус договора</h6>
                 {{ form.statusdog }}<br>
                 <h6 class="h6increate">Стоимость</h6>
@@ -35,26 +62,79 @@
                 <h6 class="h6increate">Дата составления договора</h6>
                 {{ form.datesostdog }}<br>
                 <h6 class="h6increate">Дата расторжения договора</h6>
-                {{ form.datenachdog }}<br>
+                {{ form.daterastdog }}<br>
                 <h6 class="h6increate">Дата начала договора</h6>
-                {{ form.dateokonchdog }}<br>
+                {{ form.datenachdog }}<br>
                 <h6 class="h6increate">Дата окончания договора</h6>
-                {{ form.datepodpdog }}<br>
+                {{ form.dateokonchdog }}<br>
                 <h6 class="h6increate">Дата подписи договора</h6>
-                {{ form.prichrast }}<br>
+                {{ form.datepodpdog }}<br>
                 <h6 class="h6increate">Причина расторжения</h6>
-                {{ form.kod_sotr }}<br>
+                {{ form.prichrast }}<br>
                 <h6 class="h6increate">Водитель</h6>
-                {{ form.kod_ts }}<br>
+                {{ form.fiosotr }}<br>
+<table style='font-size: 10px; margin-left: -50px' class="tableinadd">
+  <tr>
+    <th>Код сотрудника </th>
+    <th>Дата рождения</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Отчество</th>
+    <th>Дата найма</th>
+    <th>Дата окончания</th>
+    <th>Должность</th>
+    <th>Код паспорта</th>
+    <th>Код водительского удостоверения</th>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>06.10.1996</td>
+    <td>Кичева</td>
+    <td>Дарья</td>
+    <td>Андреевна</td>
+    <td>10.10.19</td>
+    <td>16.06.2021</td>
+    <td>Водитель</td>
+    <td>1234 678985</td>
+    <td>59 04 491942</td>
+  </tr>
+</table>
                 <h6 class="h6increate">Транспортное средство</h6>
-                {{ form.kod_ts }}<br>
+                {{ form.marka }}<br>
+<table style='font-size: 10px; margin-left: -90px' class="tableinadd">
+  <tr>
+    <th>Код тс</th>
+    <th>Гос номер</th>
+    <th>Наименование модели тс</th>
+    <th>Наименование марки тс</th>
+    <th>Наименование вида ТС</th>
+    <th>Тип кузова</th>
+    <th>Габариты длина, м</th>
+    <th>Габариты ширина, м</th>
+    <th>Габариты высота, м</th>
+    <th>Максимально допустимая масса, т</th>
+    <th>Способ погрузки</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>к474см29</td>
+    <td>Magnum</td>
+    <td>Renault</td>
+    <td>Грузовой</td>
+    <td>Тентованный</td>
+    <td>13.6</td>
+    <td>2.45</td>
+    <td>2.45</td>
+    <td>18</td>
+    <td>Верхняя</td>
+
+  </tr>
+</table>
             </div>
             <span>{{ error }}</span>
 
-            <button class="btn btn-success" type=submit">Добавить</button>
-            <a href="" class="btn btn-info"><i>Изменить</i></a>
-            <a href="" class="btn btn-danger"><i>Удалить</i></a>
-            <a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
+<button class="btn btn-success" type=submit">Добавить</button>
+<a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
 
         </form>
 

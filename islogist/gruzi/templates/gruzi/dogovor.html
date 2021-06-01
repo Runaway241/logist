@@ -3,7 +3,7 @@
 {% block title %}Договора{% endblock %}
 
 {% block content %}
-<div  style='float:left; font-size: 10px' class="features">
+<div  style='float:left; font-size: 12px' class="features">
 
     <h1>Список договоров</h1>
     <table id="table_id" class="display">
@@ -12,16 +12,13 @@
             <th scope="col">Номер договора</th>
             <th scope="col">Статус договора</th>
             <th scope="col">Стоимость</th>
-            <th scope="col">Особые условия</th>
             <th scope="col">Дата составления договора</th>
             <th scope="col">Дата расторжения договора</th>
             <th scope="col">Дата начала договора</th>
             <th scope="col">Дата окончания договора</th>
-            <th scope="col">Дата подписи договора</th>
-            <th scope="col">Причина расторжения</th>
-            <th scope="col">Код сотрудника</th>
-            <th scope="col">Код тс</th>
-            <th scope="col">Код заявки</th>
+            <th scope="col">Водитель</th>
+            <th scope="col">Номер заявки</th>
+            <th scope="col">Дата заявки</th>
             <th scope="col">Опции</th>
 
         </tr>
@@ -31,16 +28,13 @@
                 <td>{{ el.nomerdog }}</td>
                 <td>{{ el.statusdog }}</td>
                 <td>{{ el.stoimost }}</td>
-                <td>{{ el.osobusl }}</td>
                 <td>{{ el.datesostdog }}</td>
                 <td>{{ el.daterastdog }}</td>
                 <td>{{ el.datenachdog }}</td>
                 <td>{{ el.dateokonchdog }}</td>
-                <td>{{ el.datepodpdog }}</td>
-                <td>{{ el.prichrast }}</td>
-                <td>{{ el.kod_sotr }}</td>
-                <td>{{ el.kod_ts }}</td>
+                <td>{{ el.fiosotr }}</td>
                 <td>{{ el.nomerzai }}</td>
+                <td>{{ el.datezai }}</td>
                 <td><a class="btn btn-info btn-sm"><i class="fa fa-wrench"></i></a>
                   <a  class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                     <a  class="btn btn-warning btn-sm"><i class="fa fa-print"></i></a>

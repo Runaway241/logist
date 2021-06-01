@@ -5,26 +5,27 @@
 {% block content %}
 <div style='float:left;' class="features">
 
-    <h1>Список транспортных средств</h1>
+    <h1>Справочник транспортных средств</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">1</th>
-            <th scope="col">2</th>
-            <th scope="col">3</th>
-            <th scope="col">4</th>
-            <th scope="col">5</th>
-            <th scope="col">6</th>
-            <th scope="col">7</th>
-            <th scope="col">8</th>
-            <th scope="col">9</th>
-            <th scope="col">10</th>
-            <th scope="col">Опции</th>
 
+            <th scope="col">Гос номер</th>
+            <th scope="col">Модель</th>
+            <th scope="col">Марка</th>
+            <th scope="col">Вид тс</th>
+            <th scope="col">Тип кузова</th>
+            <th scope="col">Габариты кузова: длина</th>
+            <th scope="col">Габариты кузова: ширина</th>
+            <th scope="col">Габариты кузова: высота</th>
+            <th scope="col">Максимально допустимая масса</th>
+            <th scope="col">Способ погрузки</th>
+            <th scope="col">Опции</th>
         </tr>
         </thead>
         {% for el in gruzi %}
             <tr>
+
                 <td>{{ el.gosnomer }}</td>
                 <td>{{ el.naimmodel }}</td>
                 <td>{{ el.naimmarka }}</td>
@@ -42,7 +43,7 @@
         {% endfor %}
     </table>
 </div>
-<a style="margin-left: 50px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
 </div>
 
 {% endblock %}

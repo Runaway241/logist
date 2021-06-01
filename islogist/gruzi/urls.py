@@ -21,4 +21,11 @@ urlpatterns = [
     path('sprtovar', views.sprtovar, name='sprtovar'),
     path('sprorg', views.sprorg, name='sprorg'),
     path('sprvidharts', views.sprvidharts, name='sprvidharts'),
+
+    path('schetopl', views.schetopl, name='schetopl'),
+    path('addschetopl', views.addschetopl, name='addschetopl'),
+
+    path('actovipoln', views.actovipoln, name='actovipoln'),
+    path('addactovipoln', views.addactovipoln, name='addactovipoln'),
+
     ]

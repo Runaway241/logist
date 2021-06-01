@@ -14,8 +14,52 @@
                     {{ form.datezai }}<br>
                     <h6 class="h6increate">Грузоотправитель</h6>
                     {{ form.gruzopr }}<br>
+<table style='font-size: 10px' class="tableinadd">
+  <tr>
+    <th>Код участника</th>
+    <th>Вид участника</th>
+    <th>Организация</th>
+    <th>ИНН</th>
+    <th>КПП</th>
+    <th>Контактное лицо</th>
+    <th>Телефон</th>
+    <th>Статус участника</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>юридическое лицо</td>
+    <td>ООО "МеталлСервис"</td>
+    <td>435678324879</td>
+    <td>987659436</td>
+    <td>Сергеев Игорь Васильевич</td>
+    <td>8953654327</td>
+    <td>Временный</td>
+  </tr>
+</table>
                     <h6 class="h6increate">Грузополучатель</h6>
                     {{ form.gruzpoluch }}<br>
+                    <table style='font-size: 10px' class="tableinadd">
+  <tr>
+    <th>Код участника</th>
+    <th>Вид участника</th>
+    <th>Организация</th>
+    <th>ИНН</th>
+    <th>КПП</th>
+    <th>Контактное лицо</th>
+    <th>Телефон</th>
+    <th>Статус участника</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>юридическое лицо</td>
+    <td>ООО "Нева Сталь Строй"</td>
+    <td>546784327865</td>
+    <td>657854326</td>
+    <td>Коркина Арина Алексеевна</td>
+    <td>89506578432</td>
+    <td>Временный</td>
+  </tr>
+</table>
                     <h6 class="h6increate">Адрес грузоотправителя</h6>
                     {{ form.adr_gruzopr }}<br>
                     <h6 class="h6increate">Адрес грузополучателя</h6>
@@ -30,6 +74,28 @@
                 <div class="divv2">
                     <h6 class="h6increate">Заказчик</h6>
                     {{ form.zakazch }}<br>
+                    <table style='font-size: 10px' class="tableinadd">
+  <tr>
+    <th>Код участника</th>
+    <th>Вид участника</th>
+    <th>Организация</th>
+    <th>ИНН</th>
+    <th>КПП</th>
+    <th>Контактное лицо</th>
+    <th>Телефон</th>
+    <th>Статус участника</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>юридическое лицо</td>
+    <td>ИП Колосова Мария Сергеевна</td>
+    <td>7658754326754</td>
+    <td>786543985</td>
+    <td>Сорокин Никита Александрович</td>
+    <td>89536574537</td>
+    <td>Временный</td>
+  </tr>
+</table>
                     <h6 class="h6increate">Наименование груза</h6>
                     {{ form.naimgruza }}<br>
                     <h6 class="h6increate">Единица измерения</h6>
@@ -47,15 +113,11 @@
                     <h6 class="h6increate">Габариты: Высота</h6>
                     {{ form.gabvisot }}<br>
 
-
                 </div>
             </div>
             <span>{{ error }}</span>
-
-            <button class="btn btn-success" type=submit">Добавить</button>
-            <a href="" class="btn btn-info"><i>Изменить</i></a>
-            <a href="" class="btn btn-danger"><i>Удалить</i></a>
-            <a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
+<button class="btn btn-success" type=submit">Добавить</button>
+<a href=""><button2 class='btn btn-warning'> Отмена </button2></a>
 
         </form>
 
