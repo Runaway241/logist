@@ -277,3 +277,80 @@ class addschetoplForm(ModelForm):
                 'class': 'form-control'
             }),
         }
+
+class addschetfactForm(ModelForm):
+    class Meta:
+        fields = ['nomerdog', 'nomerschetfact', 'datesostschetfact', 'statusschetfact', 'nalstav', 'stoimostt']
+        model = Schetfact
+        widgets = {
+            'nomerdog': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'nomerschetfact': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'datesostschetfact': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'statusschetfact': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'nalstav': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'stoimostt': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+        }
+
+class addputlistForm(ModelForm):
+    class Meta:
+        fields = ['nomerdog', 'nomerputlist', 'datesostputlist', 'statusputlist', 'dateviezd',
+                  'nachpokazodo', 'datevozvr', 'konechpokazodo', 'ostgoruchviezd', 'ostgoruchvozvr', 'srokputlist']
+        model = Putlist
+        widgets = {
+            'nomerdog': Select(attrs={
+                'class': 'form-control'
+            }),
+            'nomerputlist': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'datesostputlist': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'statusputlist': TextInput(attrs={
+                'class': 'form-control'
+            }),
+            'dateviezd': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'nachpokazodo': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'datevozvr': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+
+            }),
+            'konechpokazodo': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'ostgoruchviezd': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'ostgoruchvozvr': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+            'srokputlist': TextInput(attrs={
+                'class': 'form-control'
+
+            }),
+        }

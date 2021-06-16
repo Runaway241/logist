@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm, addactovipolnForm, addschetoplForm
+from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm, addactovipolnForm, \
+    addschetoplForm, addschetfactForm, addputlistForm
 from .models import Uchastnik, Zaiavka, Dogovor, SprSotr, SprModel, SprMarka, Trsredstvo, SprDolgn, SprTipgruza, \
-    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl
+    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl, Schetfact, Putlist
 
 
 def uchastnik(request):
@@ -123,6 +124,47 @@ def addschetopl(request):
         'error': error
     }
     return render(request, 'gruzi/addschetopl.html', data)
+
+
+def schetfact(request):
+    gruzi = Schetfact.objects.all()
+    return render(request, 'gruzi/schetfact.html', {'gruzi': gruzi})
+
+def addschetfact(request):
+    error = ''
+    if request.method == 'POST':
+        form = addschetfactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('schetfact')
+        else:
+            error = 'Форма неверна'
+    form = addschetfactForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addschetfact.html', data)
+
+def putlist(request):
+    gruzi = Putlist.objects.all()
+    return render(request, 'gruzi/putlist.html', {'gruzi': gruzi})
+
+def addputlist(request):
+    error = ''
+    if request.method == 'POST':
+        form = addputlistForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('putlist')
+        else:
+            error = 'Форма неверна'
+    form = addputlistForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addputlist.html', data)
 
 '''Справочники'''
 def sprmarka(request):

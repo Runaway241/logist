@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Счет на оплату{% endblock %}
+
+{% block content %}
+<div style='float:left; font-size: 10px' class="features">
+
+    <h1>Счета на оплату</h1>
+    <table id="table_id" class="display">
+        <thead>
+        <tr>
+            <th scope="col">Номер счета</th>
+            <th scope="col">Номер договора</th>
+            <th scope="col">Дата счета</th>
+            <th scope="col">Статус счета</th>
+            <th scope="col">Номер счета получателя</th>
+            <th scope="col">Сумма</th>
+            <th scope="col">Опции</th>
+        </tr>
+        </thead>
+        {% for el in gruzi %}
+            <tr>
+                <td>{{ el.nomerdog }}</td>
+                <td>{{ el.nomerschetfact }}</td>
+                <td>{{ el.datesostschetfact }}</td>
+                <td>{{ el.statusschetfact }}</td>
+                <td>{{ el.nalstav }}</td>
+                <td>{{ el.stoimostt }}</td>
+
+                <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
+                  <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+
+
+</div>
+
+{% endblock %}

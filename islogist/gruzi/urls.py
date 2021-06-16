@@ -28,4 +28,10 @@ urlpatterns = [
     path('actovipoln', views.actovipoln, name='actovipoln'),
     path('addactovipoln', views.addactovipoln, name='addactovipoln'),
 
+    path('schetfact', views.schetfact, name='schetfact'),
+    path('addschetfact', views.addschetfact, name='addschetfact'),
+
+    path('putlist', views.putlist, name='putlist'),
+    path('addputlist', views.addputlist, name='addputlist'),
+
     ]

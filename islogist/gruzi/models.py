@@ -230,7 +230,7 @@ class Zaiavka(models.Model):
     adr_gruzpoluch = models.CharField(max_length=100)
 
     datepogr = models.DateField()
-    daterazgr = models.CharField(max_length=100)
+    daterazgr = models.DateField()
     statuszai = models.CharField(max_length=100)
 
     zakazch = models.CharField(max_length=100)
@@ -287,7 +287,7 @@ class Dogovor(models.Model):
 '''Документы'''
 
 class Putlist(models.Model):
-    nomerdog = models.CharField(max_length=50)
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT)
 
     nomerputlist = models.CharField(max_length=50)
     datesostputlist = models.DateField()
@@ -312,10 +312,13 @@ class Putlist(models.Model):
         verbose_name_plural = 'Путевые листы'
 
 class Schetfact(models.Model):
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default='')
+
     nomerschetfact = models.CharField(max_length=50)
     datesostschetfact = models.DateField()
     statusschetfact = models.CharField(max_length=100)
     nalstav =  models.CharField(max_length=50)
+    stoimostt = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.nomerschetfact
@@ -328,7 +331,9 @@ class Schetfact(models.Model):
         verbose_name_plural = 'Счет фактуры'
 
 class Actovipoln(models.Model):
-    nomeract = models.CharField(max_length=50)
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default='')
+
+    nomeract = models.CharField(max_length=100)
     dateact = models.DateField()
     statusact = models.CharField(max_length=100)
     dates = models.DateField()
@@ -351,7 +356,8 @@ class Actovipoln(models.Model):
 
 class Schetopl(models.Model):
     nomerschet = models.CharField(max_length=50)
-    nomerdog = models.CharField(max_length=50, blank=True)
+
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.CASCADE)
 
     dateschet = models.DateField()
     statusschet = models.CharField(max_length=100)
