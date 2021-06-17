@@ -12,8 +12,14 @@ urlpatterns = [
     path('addsprsotr', views.addsprsotr, name='addsprsotr'),
 
     path('sprmarka', views.sprmarka, name='sprmarka'),
+    path('addmarka', views.addmarka, name='addmarka'),
+
     path('sprmodel', views.sprmodel, name='sprmodel'),
+    path('addmodel', views.addmodel, name='addmodel'),
+
     path('trsredstvo', views.trsredstvo, name='trsredstvo'),
+    path('addtrsredstvo', views.addtrsredstvo, name='addtrsredstvo'),
+
     path('dolgn', views.dolgn, name='dolgn'),
     path('sprtipgruza', views.sprtipgruza, name='sprtipgruza'),
     path('sprgruza', views.sprgruza, name='sprgruza'),

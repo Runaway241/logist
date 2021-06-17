@@ -1,0 +1,44 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавление записи {% endblock %}
+{% block content %}
+<div style='margin: auto' class="features">
+    <h1>12   </h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="addform1">
+            <h6 class="h6increate">Номер договора</h6>
+            {{ form.kod_ts }}<br>
+            <h6 class="h6increate">Номер счет фактуры</h6>
+            {{ form.gosnomer }}<br>
+            <h6 class="h6increate">Дата составления счет фактуры</h6>
+            {{ form.naimmodel }}<br>
+            <h6 class="h6increate">Статус счет фактуры</h6>
+            {{ form.naimmarka }}<br>
+            <h6 class="h6increate">Налоговая ставка</h6>
+            {{ form.naimvidts }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.tipkuzova }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.gabdlina }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.gabshir }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.gabvis }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.maxdopustmassa }}<br>
+            <h6 class="h6increate">Стоимость</h6>
+            {{ form.sposobpogr }}<br>
+
+        </div>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type=submit">Добавить</button>
+        <button2 class='btn btn-warning'> Отмена</button2>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

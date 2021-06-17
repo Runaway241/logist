@@ -1,20 +1,20 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Счет на оплату{% endblock %}
+{% block title %}Счет фактуры{% endblock %}
 
 {% block content %}
 <div style='float:left; font-size: 10px' class="features">
 
-    <h1>Счета на оплату</h1>
+    <h1>Счет фактуры</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">Номер счета</th>
             <th scope="col">Номер договора</th>
-            <th scope="col">Дата счета</th>
-            <th scope="col">Статус счета</th>
-            <th scope="col">Номер счета получателя</th>
-            <th scope="col">Сумма</th>
+            <th scope="col">Номер счет фактуры</th>
+            <th scope="col">Дата составления счет фактуры</th>
+            <th scope="col">Статус счет фактуры</th>
+            <th scope="col">Налоговая ставка</th>
+            <th scope="col">Стоимость</th>
             <th scope="col">Опции</th>
         </tr>
         </thead>
@@ -27,6 +27,7 @@
                 <td>{{ el.nalstav }}</td>
                 <td>{{ el.stoimostt }}</td>
 
+
                 <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
                   <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
                 </td>
@@ -34,7 +35,7 @@
         {% endfor %}
     </table>
 </div>
-<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a style="margin-left: 60px" href="{% url 'addschetfact' %}" class="btn btn-info"><i class="">Добавить</i></a></li>
 
 
 </div>

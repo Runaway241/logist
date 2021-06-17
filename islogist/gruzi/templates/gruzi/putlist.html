@@ -1,26 +1,26 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Счет на оплату{% endblock %}
+{% block title %} Путевые листы {% endblock %}
 
 {% block content %}
 <div style='float:left; font-size: 10px' class="features">
 
-    <h1>Счета на оплату</h1>
+    <h1>Путевые листы</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">1</th>
-            <th scope="col">2</th>
-            <th scope="col">3</th>
-            <th scope="col">С4</th>
-            <th scope="col">Н4</th>
-            <th scope="col">С5</th>
-            <th scope="col">О6</th>
-            <th scope="col">О6</th>
-            <th scope="col">О6</th>
-            <th scope="col">О6</th>
-            <th scope="col">О6</th>
-            <th scope="col">О6</th>
+            <th scope="col">Номер договора</th>
+            <th scope="col">Номер путеовго листа</th>
+            <th scope="col">Дата составления путевого листа</th>
+            <th scope="col">Статус путевого листа</th>
+            <th scope="col">Дата выезда</th>
+            <th scope="col">Начальные показания одометра</th>
+            <th scope="col">Дата возвращения</th>
+            <th scope="col">Конечные показания одометра</th>
+            <th scope="col">Остаток горючего при выезде</th>
+            <th scope="col">Остаток горючего при возвращении</th>
+            <th scope="col">Срок путевого листа</th>
+            <th scope="col">Опции</th>
         </tr>
         </thead>
         {% for el in gruzi %}
@@ -44,7 +44,7 @@
         {% endfor %}
     </table>
 </div>
-<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a style="margin-left: 60px" href="{% url 'addputlist'%}" class="btn btn-info"><i class="">Добавить</i></a></li>
 
 
 </div>

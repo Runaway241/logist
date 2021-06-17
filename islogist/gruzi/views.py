@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm, addactovipolnForm, \
-    addschetoplForm, addschetfactForm, addputlistForm
+    addschetoplForm, addschetfactForm, addputlistForm, addttnForm, addtrsredstvoForm, addmodelForm, addmarkaForm
 from .models import Uchastnik, Zaiavka, Dogovor, SprSotr, SprModel, SprMarka, Trsredstvo, SprDolgn, SprTipgruza, \
-    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl, Schetfact, Putlist
+    SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl, Schetfact, Putlist, Ttn
 
 
 def uchastnik(request):
@@ -166,16 +166,84 @@ def addputlist(request):
     }
     return render(request, 'gruzi/addputlist.html', data)
 
+def ttn(request):
+    gruzi = Ttn.objects.all()
+    return render(request, 'gruzi/ttn.html', {'gruzi': gruzi})
+
+def addttn(request):
+    error = ''
+    if request.method == 'POST':
+        form = addttnForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('ttn')
+        else:
+            error = 'Форма неверна'
+    form = addttnForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addttn.html', data)
+
 '''Справочники'''
 def sprmarka(request):
     gruzi = SprMarka.objects.all()
     return render(request, 'gruzi/sprmarka.html', {'gruzi': gruzi})
+def addmarka(request):
+    error = ''
+    if request.method == 'POST':
+        form = addmarkaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sprmarka')
+        else:
+            error = 'Форма неверна'
+    form = addmarkaForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addmarka.html', data)
+
 def sprmodel(request):
     gruzi = SprModel.objects.all()
     return render(request, 'gruzi/sprmodel.html', {'gruzi': gruzi})
+def addmodel(request):
+    error = ''
+    if request.method == 'POST':
+        form = addmodelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('model')
+        else:
+            error = 'Форма неверна'
+    form = addmodelForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addmodel.html', data)
+
 def trsredstvo(request):
     gruzi = Trsredstvo.objects.all()
     return render(request, 'gruzi/trsredstvo.html', {'gruzi': gruzi})
+def addtrsredstvo(request):
+    error = ''
+    if request.method == 'POST':
+        form = addtrsredstvoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('trsredstvo')
+        else:
+            error = 'Форма неверна'
+    form = addtrsredstvoForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'gruzi/addtrsredstvo.html', data)
+
 def dolgn(request):
     gruzi = SprDolgn.objects.all()
     return render(request, 'gruzi/dolgn.html', {'gruzi': gruzi})
