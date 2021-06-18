@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавление записи {% endblock %}
+{% block content %}
+<div style='margin: auto' class="features">
+    <h1>Справочник должностей</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="addform1">
+            <h6 class="h6increate">Наименование должности</h6>
+            {{ form.naimdolgn }}<br>
+
+        </div>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type=submit">Добавить</button>
+        <button2 class='btn btn-warning'> Отмена</button2>
+
+    </form>
+
+</div>
+{% endblock %}

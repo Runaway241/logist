@@ -7,7 +7,9 @@
         <form method="post">
             {% csrf_token %}
             <div class="addform1">
-                <h6>Заявка</h6>
+
+                <h6 class="h6increate">Номер заявки</h6>
+                {{ form.nomerzai }}<br>
 <table style='font-size: 10px; margin-left: -230px' class="tableinadd">
   <tr>
     <th>Номер заявки </th>
@@ -30,6 +32,7 @@
     <th>Габариты: высота</th>
 
   </tr>
+
   <tr>
     <td>123</td>
     <td>31.05.2021</td>
@@ -100,7 +103,7 @@
   </tr>
 </table>
                 <h6 class="h6increate">Транспортное средство</h6>
-                {{ form.marka }}<br>
+                {{ form.kod_ts }}<br>
 <table style='font-size: 10px; margin-left: -90px' class="tableinadd">
   <tr>
     <th>Код тс</th>

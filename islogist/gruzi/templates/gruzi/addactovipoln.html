@@ -7,6 +7,8 @@
     <form method="post">
         {% csrf_token %}
         <div class="addform1">
+            <h6 class="h6increate">Номер договора</h6>
+            {{ form.nomerdog }}<br>
             <h6 class="h6increate">Номер акта</h6>
             {{ form.nomeract }}<br>
             <h6 class="h6increate">Дата акта</h6>

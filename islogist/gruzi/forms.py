@@ -52,6 +52,16 @@ class addmodelForm(ModelForm):
             }),
         }
 
+class addorgForm(ModelForm):
+    class Meta:
+        fields = ['naimorg']
+        model = SprOrg
+        widgets = {
+            'naimorg': TextInput(attrs={
+            'class': 'form-control'
+            }),
+        }
+
 class addmarkaForm(ModelForm):
     class Meta:
         fields = ['naimmarka', 'naimmodel']
@@ -62,6 +72,26 @@ class addmarkaForm(ModelForm):
             }),
             'naimmodel': Select(attrs={
             'class': 'form-control'
+            }),
+        }
+
+class adddolgnForm(ModelForm):
+    class Meta:
+        fields = ['naimdolgn']
+        model = SprDolgn
+        widgets = {
+            'naimdolgn': TextInput(attrs={
+                'class': 'form-control'
+            }),
+        }
+
+class addtipgruzaForm(ModelForm):
+    class Meta:
+        fields = ['naimtipgruza']
+        model = SprTipgruza
+        widgets = {
+            'naimtipgruza': TextInput(attrs={
+                'class': 'form-control'
             }),
         }
 
@@ -104,10 +134,10 @@ class addzaiavkarForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'gruzopr': TextInput(attrs={
+            'gruzopr': Select(attrs={
                 'class': 'form-control'
             }),
-            'gruzpoluch': TextInput(attrs={
+            'gruzpoluch': Select(attrs={
                 'class': 'form-control'
             }),
             'adr_gruzopr': TextInput(attrs={
@@ -127,10 +157,10 @@ class addzaiavkarForm(ModelForm):
             'statuszai': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'zakazch': TextInput(attrs={
+            'zakazch': Select(attrs={
                 'class': 'form-control'
             }),
-            'naimgruza': TextInput(attrs={
+            'naimgruza': Select(attrs={
                 'class': 'form-control'
             }),
             'edizm': TextInput(attrs={
@@ -139,7 +169,7 @@ class addzaiavkarForm(ModelForm):
             'kolvo': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'tipgruza': TextInput(attrs={
+            'tipgruza': Select(attrs={
                 'class': 'form-control'
             }),
             'massa': TextInput(attrs={
@@ -158,10 +188,13 @@ class addzaiavkarForm(ModelForm):
 
 class adddogovorForm(ModelForm):
     class Meta:
-        fields = ['nomerdog', 'statusdog', 'stoimost', 'osobusl', 'datesostdog', 'daterastdog', 'datenachdog',
-                  'dateokonchdog', 'datepodpdog', 'prichrast', 'fiosotr', 'marka', 'gosnomer']
+        fields = ['nomerzai', 'nomerdog', 'statusdog', 'stoimost', 'osobusl', 'datesostdog', 'daterastdog', 'datenachdog',
+                  'dateokonchdog', 'datepodpdog', 'prichrast', 'fiosotr','kod_ts']
         model = Dogovor
         widgets = {
+            'nomerzai': Select(attrs={
+                'class': 'form-control'
+            }),
             'nomerdog': TextInput(attrs={
             'class': 'form-control'
             }),
@@ -201,17 +234,8 @@ class adddogovorForm(ModelForm):
             'fiosotr': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'marka': TextInput(attrs={
+            'kod_ts': Select(attrs={
                 'class': 'form-control'
-            }),
-            'gosnomer': TextInput(attrs={
-            'nomerzai': TextInput(attrs={
-                'class': 'form-control'
-            }),
-            'datezai': DateInput(attrs={
-                'class': 'form-control',
-                'type':'date',
-            }),
             }),
         }
 
@@ -290,10 +314,10 @@ class addactovipolnForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'zakazch': TextInput(attrs={
+            'zakazch': Select(attrs={
                 'class': 'form-control'
             }),
-            'fios': TextInput(attrs={
+            'fios': Select(attrs={
                 'class': 'form-control'
             }),
         }
@@ -481,5 +505,38 @@ class addttnForm(ModelForm):
             'srokputlist': TextInput(attrs={
                 'class': 'form-control'
 
+            }),
+        }
+
+class addotchpodogForm(ModelForm):
+    class Meta:
+        fields = ['nomerdog', 'dates', 'datepo', 'datepo', 'stoimostt',
+                  'sformir']
+        model = Otchpodog
+        widgets = {
+
+            'dates': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'datepo': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+        }
+
+class addotchdoglogForm(ModelForm):
+    class Meta:
+        fields = ['nomerdog', 'datess', 'dateppo', 'datesostavll',
+                  'stoimosttt', 'sformirr']
+        model = Otchdoglog
+        widgets = {
+            'datess': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
+            'dateppo': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
             }),
         }

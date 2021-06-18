@@ -68,6 +68,19 @@ class Trsredstvo(models.Model):
         verbose_name = 'Спр.транспортное средство'
         verbose_name_plural = 'Спр.транспортные средства'
 
+class SprDolgn(models.Model):
+    naimdolgn = models.CharField('Наименование должности', max_length=100)
+
+    def __str__(self):
+        return self.naimdolgn
+
+    def get_absolute_url(self):
+        return f'/gruzi/{self.id}'
+
+    class Meta:
+        verbose_name = 'Должность'
+        verbose_name_plural = 'Должности'
+
 class SprSotr(models.Model):
     kod_sotr = models.CharField('Код сотрудника', max_length=100)
     daterogd = models.DateField()
@@ -78,7 +91,7 @@ class SprSotr(models.Model):
     datenaim = models.DateField()
     dateokonch = models.DateField(null=True, blank=True)
 
-    dolgn = models.CharField(max_length=50)
+    dolgn = models.ForeignKey(SprDolgn,  on_delete=models.PROTECT)
 
     pasport = models.CharField(max_length=50)
     vodud = models.CharField(max_length=50)
@@ -119,18 +132,7 @@ class SprUlici(models.Model):
         verbose_name = 'Улица'
         verbose_name_plural = 'Улицы'
 
-class SprDolgn(models.Model):
-    naimdolgn = models.CharField('Наименование должности', max_length=100)
 
-    def __str__(self):
-        return self.naimdolgn
-
-    def get_absolute_url(self):
-        return f'/gruzi/{self.id}'
-
-    class Meta:
-        verbose_name = 'Должность'
-        verbose_name_plural = 'Должности'
 
 class SprTipgruza(models.Model):
     naimtipgruza = models.CharField('Наименование типа груза', max_length=100)
@@ -159,7 +161,6 @@ class SprGruza(models.Model):
     class Meta:
         verbose_name = 'Груз'
         verbose_name_plural = 'Грузы'
-
 
 
 class SprTovar(models.Model):
@@ -205,12 +206,11 @@ class SprVidharts(models.Model):
 
 class Uchastnik(models.Model):
     viduch = models.CharField(max_length=100)
-    org = models.CharField(max_length=100)
+    org = models.ForeignKey(SprOrg,  on_delete=models.PROTECT)
     inn = models.CharField(max_length=50)
     kpp = models.CharField(max_length=50)
     kontlico = models.CharField(max_length=100)
     tel = models.CharField(max_length=50)
-
 
     def __str__(self):
         return self.viduch
@@ -226,8 +226,8 @@ class Zaiavka(models.Model):
     nomerzai = models.IntegerField()
     datezai = models.DateField()
 
-    gruzopr = models.CharField(max_length=100)
-    gruzpoluch = models.CharField(max_length=100)
+    gruzopr = models.ForeignKey(Uchastnik,  on_delete=models.PROTECT, related_name='oprgruza')
+    gruzpoluch = models.ForeignKey(Uchastnik,  on_delete=models.PROTECT, related_name='poluchgruza')
     adr_gruzopr = models.CharField(max_length=100)
     adr_gruzpoluch = models.CharField(max_length=100)
 
@@ -235,12 +235,12 @@ class Zaiavka(models.Model):
     daterazgr = models.DateField()
     statuszai = models.CharField(max_length=100)
 
-    zakazch = models.CharField(max_length=100)
+    zakazch = models.ForeignKey(SprOrg, on_delete=models.PROTECT)
 
-    naimgruza = models.CharField(max_length=100)
+    naimgruza = models.ForeignKey(SprGruza, on_delete=models.PROTECT)
     edizm = models.CharField(max_length=100)
     kolvo = models.CharField(max_length=50)
-    tipgruza = models.CharField(max_length=100)
+    tipgruza = models.ForeignKey(SprTipgruza, on_delete=models.PROTECT)
     massa = models.CharField(max_length=50)
     gabdlina = models.CharField(max_length=50)
     gabshir = models.CharField(max_length=50)
@@ -257,7 +257,7 @@ class Zaiavka(models.Model):
         verbose_name_plural = 'Заявки'
 
 class Dogovor(models.Model):
-    nomerzai = models.CharField(max_length=100)
+    nomerzai = models.ForeignKey(Zaiavka, on_delete=models.PROTECT)
 
     nomerdog = models.IntegerField()
     statusdog = models.CharField(max_length=100)
@@ -266,14 +266,13 @@ class Dogovor(models.Model):
     datesostdog = models.DateField()
     daterastdog = models.DateField(null=True, blank=True)
     datenachdog = models.DateField()
-    dateokonchdog = models.DateField()
+    dateokonchdog = models.DateField(null=True)
     datepodpdog = models.DateField()
     prichrast = models.CharField(max_length=100, null=True, blank=True)
 
-    fiosotr = models.CharField(max_length=50)
+    fiosotr = models.ForeignKey(SprSotr, on_delete=models.PROTECT)
 
-    marka = models.CharField(max_length=50, blank=True)
-    gosnomer = models.CharField(max_length=50, blank=True)
+    kod_ts = models.ForeignKey(Trsredstvo, on_delete=models.PROTECT, default='')
 
 
     def __str__(self):
@@ -340,7 +339,7 @@ class Schetfact(models.Model):
         verbose_name_plural = 'Счет фактуры'
 
 class Actovipoln(models.Model):
-    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default='')
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT)
 
     nomeract = models.CharField(max_length=100)
     dateact = models.DateField()
@@ -351,8 +350,8 @@ class Actovipoln(models.Model):
     pretenz = models.CharField(max_length=100, blank=True)
     datepodpis = models.DateField(null=True, blank=True)
 
-    zakazch = models.CharField(max_length=100, blank=True)
-    fios = models.CharField(max_length=100, blank=True)
+    zakazch = models.ForeignKey(SprOrg, on_delete=models.PROTECT)
+    fios = models.ForeignKey(SprSotr, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nomeract
@@ -393,7 +392,7 @@ class Schetopl(models.Model):
         verbose_name_plural = 'Счет на оплату'
 
 class Ttn(models.Model):
-    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT)
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default="")
 
     nomerttn = models.CharField(max_length=50)
     datettn = models.DateField()
@@ -414,6 +413,45 @@ class Ttn(models.Model):
         verbose_name = 'ттн'
         verbose_name_plural = 'ттн'
 
+class Otchpodog(models.Model):
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default="")
+
+    dates = models.DateField()
+    datepo = models.DateField()
+    datesostavl = models.DateField()
+    datenachala = models.DateField()
+    dateokonch = models.DateField()
+    stoimostt = models.CharField(max_length=100)
+    sformir = models.ForeignKey(SprSotr, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nomerdog
+
+    def get_absolute_url(self):
+        return f'/gruzi/{self.id}'
+
+    class Meta:
+        verbose_name = 'Отчет по заключенным договорам'
+        verbose_name_plural = 'Отчет по заключенным договорам'
+
+class Otchdoglog(models.Model):
+    nomerdog = models.ForeignKey(Dogovor, on_delete=models.PROTECT, default="")
+    datess = models.DateField()
+    dateppo = models.DateField()
+
+    datesostavll = models.DateField()
+    stoimosttt = models.CharField(max_length=100)
+    sformirr = models.ForeignKey(SprSotr, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.nomerdog
+
+    def get_absolute_url(self):
+        return f'/gruzi/{self.id}'
+
+    class Meta:
+        verbose_name = 'Отчет по заключенным договорам'
+        verbose_name_plural = 'Отчет по заключенным договорам'
 
 
 
