@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/js/vipsp.js' %}">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 <body>
@@ -19,22 +20,41 @@
         </div>
         <ul>
            <a href=""><li><i class="fas fa-house-damage mr-2"></i>Главная</li></a>
-           <a href="{% url 'dogovor' %}"><li><i class="fa fa-book mr-2"></i>Договора</li></a>
-           <a href="{% url 'zaiavka' %}"><li><i class="fas fa-newspaper mr-2"></i>Заявки</li></a>
-           <a href="{% url 'zaiavka' %}"><li><i class="fa fa-address-book mr-2"></i>Участники</li></a>
+           <a href="{% url 'zaiavka' %}"><li><i class="fas fa-newspaper mr-2"></i>Работа с заявками</li></a>
+
+            <div style="margin-top: 15px" class="dropdown">
+                <span style="color: black"><i class="fa fa-cog mr-2"></i>Работа с документами</span>
+                <div class="dropdown-content">
+                    <p><a href="{% url 'dogovor' %}"><li><i class="fa fa-book mr-2"></i>Договор</li></a></p>
+                    <p><a href="{% url 'putlist' %}"><li><i class="fa fa-book mr-2"></i>Путевой лист</li></a></p>
+                    <p><a href="{% url 'actovipoln' %}"><li><i class="fa fa-book mr-2"></i>Акт выполненной работы</li></a></p>
+                    <p><a href="{% url 'schetfact' %}"><li><i class="fa fa-book mr-2"></i>Счет фактура</li></a></p>
+                    <p><a href="{% url 'schetopl' %}"><li><i class="fa fa-book mr-2"></i>Счет на оплату</li></a></p>
+                    <p><a href="{% url 'ttn' %}"><li><i class="fa fa-book mr-2"></i>ТТН</li></a></p>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px" class="dropdown">
+                <span style="color: black"><i class="fa fa-cog mr-2"></i>Формирование отчетов</span>
+                <div class="dropdown-content">
+                    <p><a href="{% url 'otchdoglog' %}"><li><i class="fa fa-book mr-2"></i>Отчет по заключенным договорам</li></a></p>
+                    <p><a href="{% url 'otchpodog' %}"><li><i class="fa fa-book mr-2"></i>Отчет по заключенным договорам</li></a></p>
+
+                </div>
+            </div>
 
             <div style="margin-top: 15px" class="dropdown">
                 <span style="color: black"><i class="fa fa-cog mr-2"></i>Справочники</span>
                 <div class="dropdown-content">
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Транспортные средства</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Сотрудники</li></a></p>
-                    <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Должности</li></a></p>
+                    <p><a href="{% url 'dolgn'%}"><li><i class="fa fa-bookmark mr-2"></i>Должности</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Грузы</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Марки тс</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Модели тс</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Организации</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Типы груза</li></a></p>
-                    <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Товар</li></a></p>
+                    <p><a href="{% url 'zaiavka' %}"><li><i class="fa fa-address-book mr-2"></i>Участники</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Виды характеристики тс</li></a></p>
                     <p><a href=""><li><i class="fa fa-bookmark mr-2"></i>Виды тс</li></a></p>
                 </div>

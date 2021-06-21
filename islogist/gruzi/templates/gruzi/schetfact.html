@@ -5,7 +5,7 @@
 {% block content %}
 <div style='float:left; font-size: 10px' class="features">
 
-    <h1>Счет фактуры</h1>
+    <h1>Список счет фактур</h1>
     <table id="table_id" class="display">
         <thead>
         <tr>
@@ -15,6 +15,8 @@
             <th scope="col">Статус счет фактуры</th>
             <th scope="col">Налоговая ставка</th>
             <th scope="col">Стоимость</th>
+            <th scope="col">Дата подписания </th>
+            <th scope="col">Составил</th>
             <th scope="col">Опции</th>
         </tr>
         </thead>
@@ -26,6 +28,8 @@
                 <td>{{ el.statusschetfact }}</td>
                 <td>{{ el.nalstav }}</td>
                 <td>{{ el.stoimostt }}</td>
+                <td>{{ el.datepodpschetfact }}</td>
+                <td>{{ el.sostschetfact }}</td>
 
 
                 <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>

@@ -50,6 +50,9 @@ urlpatterns = [
     path('putlist', views.putlist, name='putlist'),
     path('addputlist', views.addputlist, name='addputlist'),
 
+    path('ttn', views.ttn, name='ttn'),
+    path('addttn', views.addttn, name='addttn'),
+
     path('otchpodog', views.otchpodog, name='otchpodog'),
     path('addotchpodog', views.addotchpodog, name='addotchpodog'),
 

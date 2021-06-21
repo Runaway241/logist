@@ -13,13 +13,14 @@
             <th scope="col">Гос номер</th>
             <th scope="col">Модель</th>
             <th scope="col">Марка</th>
-            <th scope="col">Вид тс</th>
+            <th scope="col">Вид ТС</th>
             <th scope="col">Тип кузова</th>
-            <th scope="col">Габариты кузова: длина</th>
-            <th scope="col">Габариты кузова: ширина</th>
-            <th scope="col">Габариты кузова: высота</th>
-            <th scope="col">Максимально допустимая масса</th>
+            <th scope="col">Габариты кузова: Длина, метр</th>
+            <th scope="col">Габариты кузова: Ширина, метр</th>
+            <th scope="col">Габариты кузова: Высота, метр</th>
+            <th scope="col">Максимально допустимая масса, тонн</th>
             <th scope="col">Способ погрузки</th>
+
             <th scope="col">Опции</th>
         </tr>
         </thead>
@@ -43,7 +44,7 @@
         {% endfor %}
     </table>
 </div>
-<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a style="margin-left: 60px" href="{% url 'addtrsredstvo'%}" class="btn btn-info"><i class="">Добавить</i></a></li>
 </div>
 
 {% endblock %}

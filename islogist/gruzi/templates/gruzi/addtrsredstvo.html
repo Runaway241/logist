@@ -1,33 +1,33 @@
 {% extends 'main/layout.html' %}
 
-{% block title %} Добавление записи {% endblock %}
+{% block title %} Добавление записи "Транспорное средство" {% endblock %}
 {% block content %}
 <div style='margin: auto' class="features">
-    <h1>12   </h1>
+    <h1>Добавление записи "Транспорное средство"</h1>
     <form method="post">
         {% csrf_token %}
         <div class="addform1">
-            <h6 class="h6increate">Номер договора</h6>
+            <h6 class="h6increate">Код ТС</h6>
             {{ form.kod_ts }}<br>
-            <h6 class="h6increate">Номер счет фактуры</h6>
+            <h6 class="h6increate">Гос номер</h6>
             {{ form.gosnomer }}<br>
-            <h6 class="h6increate">Дата составления счет фактуры</h6>
+            <h6 class="h6increate">Модель</h6>
             {{ form.naimmodel }}<br>
-            <h6 class="h6increate">Статус счет фактуры</h6>
+            <h6 class="h6increate">Марка</h6>
             {{ form.naimmarka }}<br>
-            <h6 class="h6increate">Налоговая ставка</h6>
+            <h6 class="h6increate">Вид ТС</h6>
             {{ form.naimvidts }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Тип кузова</h6>
             {{ form.tipkuzova }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Габариты кузова: Длина, метр</h6>
             {{ form.gabdlina }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Габариты кузова: Ширина, метр</h6>
             {{ form.gabshir }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Габариты кузова: Высота, метр</h6>
             {{ form.gabvis }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Максимально допустимая масса, тонн</h6>
             {{ form.maxdopustmassa }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Способ погрузки</h6>
             {{ form.sposobpogr }}<br>
 
         </div>

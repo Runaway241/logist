@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Путевые листы {% endblock %}
+
+{% block content %}
+<div style='float:left; font-size: 10px' class="features">
+
+    <h1>Список ТТН</h1>
+    <table id="table_id" class="display">
+        <thead>
+        <tr>
+            <th scope="col">Номер договора</th>
+            <th scope="col">Номер ТТН</th>
+            <th scope="col">Дата составления ТТН</th>
+            <th scope="col">Статус ТТН</th>
+            <th scope="col">Наименование груза</th>
+            <th scope="col">Количество плановое</th>
+            <th scope="col">Количество фактичесоке</th>
+            <th scope="col">Единица измерения</th>
+            <th scope="col">Срок доставки</th>
+            <th scope="col">Итоговая стоимость</th>
+            <th scope="col">Файл</th>
+            <th scope="col">Опции</th>
+        </tr>
+        </thead>
+        {% for el in gruzi %}
+            <tr>
+                <td>{{ el.nomerdog }}</td>
+                <td>{{ el.nomerttn }}</td>
+                <td>{{ el.datettn }}</td>
+                <td>{{ el.statusttn }}</td>
+                <td>{{ el.naimgruz }}</td>
+                <td>{{ el.kolvoplan }}</td>
+                <td>{{ el.kolvofact }}</td>
+                <td>{{ el.edizmttn }}</td>
+                <td>{{ el.srokdost }}</td>
+                <td>{{ el.itogstoim }}</td>
+                <td><u><font color="blue">ТТН</font></u>
+                    <input class="btn btn-primary" type="reset" value="Скачать">
+                </td>
+
+                <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
+                  <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<a style="margin-left: 60px" href="{% url 'addttn'%}" class="btn btn-info"><i class="">Добавить</i></a></li>
+
+
+</div>
+
+{% endblock %}

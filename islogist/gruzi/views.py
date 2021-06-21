@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import adduchastnikForm, addzaiavkarForm, adddogovorForm, addsprsotrForm, addactovipolnForm, \
-    addschetoplForm, addschetfactForm, addputlistForm, addttnForm, addtrsredstvoForm, addmodelForm, addmarkaForm, \
-    adddolgnForm, addtipgruzaForm, addorgForm, addotchpodogForm, addotchdoglogForm
+    addschetoplForm, addschetfactForm, addttnForm, addtrsredstvoForm, addmodelForm, addmarkaForm, \
+    adddolgnForm, addtipgruzaForm, addorgForm, addotchpodogForm, addotchdoglogForm, addputlistForm
 from .models import Uchastnik, Zaiavka, Dogovor, SprSotr, SprModel, SprMarka, Trsredstvo, SprDolgn, SprTipgruza, \
     SprGruza, SprVidts, SprTovar, SprOrg, SprVidharts, Actovipoln, Schetopl, Schetfact, Putlist, Ttn, Otchpodog, \
     Otchdoglog

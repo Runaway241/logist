@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SprMarka, Ttn, Schetopl, Actovipoln, Schetfact, Putlist, Dogovor, Zaiavka, Uchastnik, SprVidharts, \
+from .models import SprMarka, Ttn, Schetopl, Actovipoln, Schetfact, Dogovor, Zaiavka, Uchastnik, SprVidharts, \
     SprOrg, SprTovar, SprVidts, SprGruza, SprTipgruza, SprDolgn, SprUlici, SprGorod, SprSotr, Trsredstvo, SprModel, \
     Otchpodog
 
@@ -22,7 +22,7 @@ admin.site.register(SprVidharts)
 admin.site.register(Uchastnik)
 admin.site.register(Zaiavka)
 admin.site.register(Dogovor)
-admin.site.register(Putlist)
+
 admin.site.register(Schetfact)
 admin.site.register(Actovipoln)
 admin.site.register(Schetopl)

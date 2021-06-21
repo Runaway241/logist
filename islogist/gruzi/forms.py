@@ -2,7 +2,7 @@ from .models import *
 from django.forms import ModelForm, TextInput, DateField, CheckboxInput, DateInput, Select, NumberInput
 class addtrsredstvoForm(ModelForm):
     class Meta:
-        fields = ['kod_ts', 'gosnomer', 'naimmodel', 'naimvidts', 'tipkuzova', 'gabdlina',
+        fields = ['kod_ts', 'gosnomer', 'naimmodel', 'naimmarka', 'naimvidts', 'tipkuzova', 'gabdlina',
                   'gabshir', 'gabvis', 'maxdopustmassa', 'sposobpogr']
         model = Trsredstvo
         widgets = {
@@ -15,10 +15,13 @@ class addtrsredstvoForm(ModelForm):
             'naimmodel': Select(attrs={
                 'class': 'form-control'
             }),
+            'naimmarka': Select(attrs={
+                'class': 'form-control'
+            }),
             'naimvidts': Select(attrs={
                 'class': 'form-control'
             }),
-            'tipkuzova': TextInput(attrs={
+            'tipkuzova': Select(attrs={
                 'class': 'form-control'
             }),
             'gabdlina': TextInput(attrs={
@@ -36,7 +39,7 @@ class addtrsredstvoForm(ModelForm):
                 'class': 'form-control'
             }),
 
-            'sposobpogr': TextInput(attrs={
+            'sposobpogr': Select(attrs={
                 'class': 'form-control'
             }),
 
@@ -103,7 +106,7 @@ class adduchastnikForm(ModelForm):
             'viduch': TextInput(attrs={
             'class': 'form-control'
             }),
-            'org': TextInput(attrs={
+            'org': Select(attrs={
                 'class': 'form-control'
             }),
             'inn': TextInput(attrs={
@@ -127,7 +130,7 @@ class addzaiavkarForm(ModelForm):
                   'daterazgr', 'statuszai', 'zakazch', 'naimgruza', 'edizm', 'kolvo', 'tipgruza', 'massa', 'gabdlina', 'gabshir', 'gabvisot']
         model = Zaiavka
         widgets = {
-            'nomerzai': Select(attrs={
+            'nomerzai': TextInput(attrs={
             'class': 'form-control'
             }),
             'datezai': DateInput(attrs={
@@ -154,7 +157,7 @@ class addzaiavkarForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'statuszai': TextInput(attrs={
+            'statuszai': Select(attrs={
                 'class': 'form-control'
             }),
             'zakazch': Select(attrs={
@@ -198,7 +201,7 @@ class adddogovorForm(ModelForm):
             'nomerdog': TextInput(attrs={
             'class': 'form-control'
             }),
-            'statusdog': TextInput(attrs={
+            'statusdog': Select(attrs={
                 'class': 'form-control'
 
             }),
@@ -231,7 +234,7 @@ class adddogovorForm(ModelForm):
             'prichrast': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'fiosotr': TextInput(attrs={
+            'fiosotr': Select(attrs={
                 'class': 'form-control'
             }),
             'kod_ts': Select(attrs={
@@ -337,7 +340,7 @@ class addschetoplForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'statusschet': TextInput(attrs={
+            'statusschet': Select(attrs={
                 'class': 'form-control'
             }),
             'nomerschetpoluch': TextInput(attrs={
@@ -363,6 +366,10 @@ class addschetoplForm(ModelForm):
             'bik': TextInput(attrs={
                 'class': 'form-control'
             }),
+            'datepodpisschetopl': TextInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+            }),
             'sostavil': TextInput(attrs={
                 'class': 'form-control'
             }),
@@ -370,7 +377,8 @@ class addschetoplForm(ModelForm):
 
 class addschetfactForm(ModelForm):
     class Meta:
-        fields = ['nomerdog', 'nomerschetfact', 'datesostschetfact', 'statusschetfact', 'nalstav', 'stoimostt']
+        fields = ['nomerdog', 'nomerschetfact', 'datesostschetfact', 'statusschetfact', 'nalstav', 'stoimostt',
+                  'datepodpschetfact', 'sostschetfact']
         model = Schetfact
         widgets = {
             'nomerdog': Select(attrs={
@@ -383,7 +391,7 @@ class addschetfactForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'statusschetfact': TextInput(attrs={
+            'statusschetfact': Select(attrs={
                 'class': 'form-control'
             }),
             'nalstav': TextInput(attrs={
@@ -393,13 +401,22 @@ class addschetfactForm(ModelForm):
                 'class': 'form-control'
 
             }),
+            'datepodpschetfact': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+
+            }),
+            'sostschetfact': Select(attrs={
+                'class': 'form-control'
+
+            }),
         }
 
 class addputlistForm(ModelForm):
     class Meta:
         fields = ['nomerdog', 'nomerputlist', 'datesostputlist', 'statusputlist', 'dateviezd',
-                  'nachpokazodo', 'datevozvr', 'konechpokazodo',
-                  'ostgoruchviezd', 'ostgoruchvozvr', 'srokputlist', 'datepodpputlist', 'osobotm']
+                  'nachpokazodo', 'datevozvr', 'konechpokazodo', 'ostgoruchviezd', 'ostgoruchvozvr', 'srokputlist',
+                  'datepodpputlist', 'osobotm']
         model = Putlist
         widgets = {
             'nomerdog': Select(attrs={
@@ -430,6 +447,7 @@ class addputlistForm(ModelForm):
             }),
             'konechpokazodo': TextInput(attrs={
                 'class': 'form-control'
+
 
             }),
             'ostgoruchviezd': TextInput(attrs={
@@ -448,64 +466,58 @@ class addputlistForm(ModelForm):
                 'class': 'form-control',
                 'type': 'date'
 
-
             }),
             'osobotm': TextInput(attrs={
                 'class': 'form-control'
 
             }),
-
-
         }
 
 class addttnForm(ModelForm):
     class Meta:
-        fields = ['nomerdog', 'nomerputlist', 'datesostputlist', 'statusputlist', 'dateviezd',
-                  'nachpokazodo', 'datevozvr', 'konechpokazodo', 'ostgoruchviezd', 'ostgoruchvozvr', 'srokputlist']
-        model = Putlist
+        fields = ['nomerdog', 'nomerttn', 'datettn', 'statusttn', 'naimgruz', 'kolvoplan',
+                  'kolvofact', 'edizmttn', 'srokdost', 'itogstoim']
+        model = Ttn
         widgets = {
             'nomerdog': Select(attrs={
                 'class': 'form-control'
             }),
-            'nomerputlist': TextInput(attrs={
+            'nomerttn': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'datesostputlist': DateInput(attrs={
+            'datettn': DateInput(attrs={
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'statusputlist': TextInput(attrs={
+            'statusttn': TextInput(attrs={
                 'class': 'form-control'
             }),
-            'dateviezd': DateInput(attrs={
+            'naimgruz': Select(attrs={
+                'class': 'form-control'
+            }),
+            'kolvoplan': DateInput(attrs={
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'nachpokazodo': TextInput(attrs={
+            'kolvofact': TextInput(attrs={
                 'class': 'form-control'
 
             }),
-            'datevozvr': DateInput(attrs={
+            'edizmttn': DateInput(attrs={
                 'class': 'form-control',
                 'type': 'date'
 
             }),
-            'konechpokazodo': TextInput(attrs={
+            'srokdost': DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'
+
+            }),
+            'itogstoim': TextInput(attrs={
                 'class': 'form-control'
 
             }),
-            'ostgoruchviezd': TextInput(attrs={
-                'class': 'form-control'
 
-            }),
-            'ostgoruchvozvr': TextInput(attrs={
-                'class': 'form-control'
-
-            }),
-            'srokputlist': TextInput(attrs={
-                'class': 'form-control'
-
-            }),
         }
 
 class addotchpodogForm(ModelForm):

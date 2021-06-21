@@ -3,7 +3,7 @@
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
 <div style='margin: auto' class="features">
-    <h1>Формирование акта выполненных работ</h1>
+    <h1>Формирование счет фактуры</h1>
     <form method="post">
         {% csrf_token %}
         <div class="addform1">
@@ -17,32 +17,14 @@
             {{ form.statusschetfact }}<br>
             <h6 class="h6increate">Налоговая ставка</h6>
             {{ form.nalstav }}<br>
-            <h6 class="h6increate">Стоимость</h6>
+            <h6 class="h6increate">Стоимость, рублей</h6>
             {{ form.stoimostt }}<br>
+            <h6 class="h6increate">Дата подписания счет фактуры</h6>
+            {{ form.datepodpschetfact }}<br>
+            <h6 class="h6increate">Составил</h6>
+            {{ form.sostschetfact  }}<br>
 
-<table style='font-size: 10px; margin-left: -90px' class="tableinadd">
-  <tr>
-    <th>Вид участника</th>
-    <th>Организация</th>
-    <th>ИНН</th>
-    <th>КПП</th>
-    <th>Контактное лицо</th>
-    <th>Телефон</th>
-    <th>Статус участника</th>
-  </tr>
-  <tr>
-    <td>юридическое лицо</td>
-    <td>ИП Колосова Мария Сергеевна</td>
-    <td>7658754326754</td>
-    <td>786543985</td>
-    <td>Сорокин Никита Александрович</td>
-    <td>89536574537</td>
-    <td>Временный</td>
-  </tr>
-</table>
-            <h6 class="h6increate">Составитель</h6>
-            {{ form.fios }}<br>
-<table style='font-size: 10px; margin-left: -90px' class="tableinadd">
+<table style='font-size: 10px; margin-left: -0px' class="tableinadd">
   <tr>
     <th>Код сотрудника</th>
     <th>Фамилия</th>
@@ -62,7 +44,7 @@
         <span>{{ error }}</span>
 
         <button class="btn btn-success" type=submit">Добавить</button>
-        <button2 class='btn btn-warning'> Отмена</button2>
+        <a href="{% url 'schetfact'%}"><button2 class='btn btn-warning'> Отмена </button2></a>
 
 
     </form>

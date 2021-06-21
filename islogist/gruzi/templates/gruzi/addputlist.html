@@ -3,7 +3,7 @@
 {% block title %} Добавление записи {% endblock %}
 {% block content %}
 <div style='margin: auto' class="features">
-    <h1>Формирование акта выполненных работ</h1>
+    <h1>Формирование путевого листа</h1>
     <form method="post">
         {% csrf_token %}
         <div class="addform1">
@@ -17,15 +17,15 @@
             {{ form.statusputlist }}<br>
             <h6 class="h6increate">Дата выезда</h6>
             {{ form.dateviezd }}<br>
-            <h6 class="h6increate">Начальные показания одометра</h6>
+            <h6 class="h6increate">Начальные показания одометра, км</h6>
             {{ form.nachpokazodo }}<br>
             <h6 class="h6increate">Дата возвращения</h6>
             {{ form.datevozvr }}<br>
-            <h6 class="h6increate">Конечные показания одометра</h6>
+            <h6 class="h6increate">Конечные показания одометра, км</h6>
             {{ form.konechpokazodo }}<br>
-            <h6 class="h6increate">Остаток горючего при выезде</h6>
+            <h6 class="h6increate">Остаток горючего при выезде, литров</h6>
             {{ form.ostgoruchviezd }}<br>
-            <h6 class="h6increate">Остаток горючего при возвращении</h6>
+            <h6 class="h6increate">Остаток горючего при возвращении, литров</h6>
             {{ form.ostgoruchvozvr }}<br>
 
             <h6 class="h6increate">Срок путевого листа</h6>
@@ -35,7 +35,7 @@
         <span>{{ error }}</span>
 
         <button class="btn btn-success" type=submit">Добавить</button>
-        <button2 class='btn btn-warning'> Отмена</button2>
+        <a href="{% url 'putlist'%}"><button2 class='btn btn-warning'> Отмена </button2></a>
 
 
     </form>

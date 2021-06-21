@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавление записи {% endblock %}
+{% block content %}
+<div style='margin: auto' class="features">
+    <h1>Формирование ТТН</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="addform1">
+            <h6 class="h6increate">Номер договора</h6>
+            {{ form.nomerdog }}<br>
+            <h6 class="h6increate">Номер ТТН</h6>
+            {{ form.nomerttn }}<br>
+            <h6 class="h6increate">Дата составления ТТН</h6>
+            {{ form.datettn }}<br>
+            <h6 class="h6increate">Статус ТТН</h6>
+            {{ form.statusttn }}<br>
+            <h6 class="h6increate">Наименование груза</h6>
+            {{ form.naimgruz }}<br>
+            <h6 class="h6increate">Количество плановое</h6>
+            {{ form.kolvoplan }}<br>
+            <h6 class="h6increate">Количество фактичесоке</h6>
+            {{ form.kolvofact }}<br>
+            <h6 class="h6increate">Единица измерения</h6>
+            {{ form.edizmttn }}<br>
+            <h6 class="h6increate">Срок доставки</h6>
+            {{ form.srokdost }}<br>
+            <h6 class="h6increate">Итоговая стоимость</h6>
+            {{ form.itogstoim }}<br>
+
+
+        </div>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type=submit">Добавить</button>
+        <a href="{% url 'putlist'%}"><button2 class='btn btn-warning'> Отмена </button2></a>
+
+
+    </form>
+
+
+</div>
+{% endblock %}

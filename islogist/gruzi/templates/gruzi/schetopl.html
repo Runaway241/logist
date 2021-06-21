@@ -9,26 +9,28 @@
     <table id="table_id" class="display">
         <thead>
         <tr>
-            <th scope="col">Номер счета</th>
             <th scope="col">Номер договора</th>
-            <th scope="col">Дата счета</th>
+            <th scope="col">Номер счета</th>
+            <th scope="col">Дата составления счета</th>
             <th scope="col">Статус счета</th>
             <th scope="col">Номер счета получателя</th>
-            <th scope="col">Сумма</th>
+            <th scope="col">Сумма, рублей</th>
             <th scope="col">Получатель</th>
             <th scope="col">Заказчик</th>
             <th scope="col">Банк</th>
             <th scope="col">Счет банка</th>
             <th scope="col">БИК банка</th>
+            <th scope="col">Дата подписи</th>
             <th scope="col">Составил</th>
-            <th scope="col">Составил</th>
+
 
         </tr>
         </thead>
         {% for el in gruzi %}
             <tr>
-                <td>{{ el.nomerschet }}</td>
                 <td>{{ el.nomerdog }}</td>
+                <td>{{ el.nomerschet }}</td>
+
                 <td>{{ el.dateschet }}</td>
                 <td>{{ el.statusschet }}</td>
                 <td>{{ el.nomerschetpoluch }}</td>
@@ -38,6 +40,7 @@
                 <td>{{ el.bank }}</td>
                 <td>{{ el.schetbanka }}</td>
                 <td>{{ el.bik }}</td>
+                <td>{{ el.datepodpisschetopl }}</td>
                 <td>{{ el.sostavil }}</td>
                 <td><a  class="btn btn-info btn-sm" href=""><i class="fa fa-wrench"></i></a>
                   <a  class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
@@ -46,7 +49,7 @@
         {% endfor %}
     </table>
 </div>
-<a style="margin-left: 60px" href="" class="btn btn-info"><i class="">Добавить</i></a></li>
+<a style="margin-left: 60px" href="{% url 'addschetopl'%}" class="btn btn-info"><i class="">Добавить</i></a></li>
 
 
 </div>
